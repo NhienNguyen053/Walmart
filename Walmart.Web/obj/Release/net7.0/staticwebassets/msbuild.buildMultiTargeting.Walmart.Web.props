@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Walmart.Web.props" />
+</Project>

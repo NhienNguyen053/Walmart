@@ -1,0 +1,51 @@
+@model Walmart.ApplicationCore.Models.Category
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard Analytics</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Create Category</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12" style="top: -90px;left:10px;max-width:98.5%">
+        <div class="card table-card">
+            <div class="card-body p-4">
+                <form method="post" onsubmit="if (!checknull2()) return false;" asp-action="EditCategory" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="font-weight: 900;">Category Name</label>
+                        <input class="form-control" id="categoryname" name="categoryname" placeholder="Enter Category Name" value="@Model.Category_Name">
+                        <div class="mt-1 text-danger" id="cn1" style="display: none;">Please enter category name !</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="font-weight: 900;">Category Image</label>
+                        <input class="form-control" style="border: none;width:fit-content;" id="categoryimage" name="categoryimage" type="file" accept="image/png, image/jpeg, image/jpg, image/webp" value="">
+                            @if (Model.Category_Image != null)
+                            {
+                                <div id="image-preview" style="width: 140px;height:140px;display:block;margin-top:10px">
+                                <img src="~/@Model.Category_Image" alt="Image preview" style="width:100%" id="preview">
+                                </div>
+                                <span class="fa-solid fa-circle-xmark" style="display: none;color:red;margin-left:63px;cursor:pointer;width:fit-content" id="x" onclick="removeimg()"></span>
+                            }else{
+                                <div id="image-preview" style="width: 140px;height:140px;display:none;margin-top:10px"></div>
+                                <span class="fa-solid fa-circle-xmark" style="display: none;color:red;margin-left:63px;cursor:pointer;width:fit-content" id="x" onclick="removeimg()"></span>
+                            }
+                        <div class="mt-1 text-danger" id="ln1" style="display: none;"></div>
+                    </div>
+                    <input value="@Model.CategoryId" id="categoryid" name="categoryid" style="display: none;">
+                    <a asp-action="ManageCategories" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>    
+    </div>
+</div>

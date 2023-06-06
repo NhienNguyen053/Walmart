@@ -1,0 +1,109 @@
+@model Walmart.ApplicationCore.DtoModels.OrderDetailsDto;
+<style>
+    p{
+        font-size: 15px;
+    }
+</style>
+
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard Analytics</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Order Details</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12" style="top: -90px;left:10px;max-width:98.5%">
+        <div class="card table-card">
+            <div class="card-body p-4">
+                <div class="row" style="border-bottom: 1px solid rgb(230, 230, 230);margin-bottom: 15px;">
+                    <div class="col">
+                        <label style="font-weight: 900;font-size:20px">Order Info</label>
+                        <br>
+                        <p>Order ID: #@Model.order!.OrderId</p>
+                        <p>Create Date: @Model.order!.CreateDate</p>
+                        <p>Payment Method: @Model.order!.Payment_Method</p>
+                        <p>Order Status: @Model.order!.Order_Status</p>
+                    </div>
+                    <div class="col">
+                        <label style="font-weight: 900;font-size:20px">Customer Info</label>
+                        <br>
+                        <p>Customer ID: #@Model.order!.Customer_Id</p>
+                        <p>Customer Name: @Model.order!.Customer_Name</p>
+                        <p>Phone Number: @Model.order!.Phone_Number</p>
+                        <p>Address: @Model.order!.Address</p>
+                    </div>
+                </div>
+                <label style="font-weight: 900;font-size:20px">Order Items</label>
+                    @foreach (var item in Model.orderDetails!)
+                    {
+                        var total = item.Product_Price * item.Product_Quantity;
+                        <div style="display: flex;margin:25px 0 0 0;padding:0 25px 15px 25px" id="@item.OrderDetailId">
+                        <a><img src="~/@item.Product_Image" style="max-height:96px;max-width:96px;margin-right:10px;border-radius:0"></a>
+                        <div style="width: 100%;">
+                            <p>@item.Product_Name</p>
+                            <p>Price: $<span id="price_@item.OrderDetailId">@item.Product_Price</span></p>
+                            <p>Quantity: @item.Product_Quantity</p>
+                        </div>
+                        <div>
+                            <p style="color: green;" id="total_@item.OrderDetailId">$@total</p>
+                        </div>
+                        </div>
+                    }
+                    <div class="form-group">
+                        <span for="exampleInputPassword1" style="color: red;font-size:18px">Total Price: $<span id="total">@Model.order.Total_Price</span></span>
+                    </div>
+                    <form asp-action="UpdateOrder">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Update order status</label>
+                                @if (Model.order!.Order_Status == "Pending")
+                                {
+                                    <select class="form-control" style="width: 200px;padding-left:10px;border-bottom:none" id="orderstatus" name="orderstatus">
+                                        <option selected>Pending</option>
+                                        <option>Processing</option>
+                                        <option>Shipping</option>
+                                        <option>Paid</option>
+                                        <option>Canceled</option>
+                                    </select>
+                                }else if(Model.order.Order_Status == "Processing"){
+                                    <select class="form-control" style="width: 200px;padding-left:10px;border-bottom:none" id="orderstatus" name="orderstatus">
+                                        <option selected>Processing</option>
+                                        <option>Shipping</option>
+                                        <option>Paid</option>
+                                        <option>Canceled</option>
+                                    </select>
+                                }else if(Model.order.Order_Status == "Paid"){
+                                    <select class="form-control" style="width: 200px;padding-left:10px;border-bottom:none" id="orderstatus" name="orderstatus" disabled>
+                                        <option selected>Paid</option>
+                                    </select>
+                                }else if(Model.order.Order_Status == "Shipping"){
+                                    <select class="form-control" style="width: 200px;padding-left:10px;border-bottom:none" id="orderstatus" name="orderstatus">
+                                        <option selected>Shipping</option>
+                                        <option>Paid</option>
+                                        <option>Canceled</option>
+                                    </select>
+                                }else{
+                                    <select class="form-control" style="width: 200px;padding-left:10px;border-bottom:none" id="orderstatus" name="orderstatus" disabled>
+                                        <option selected>Canceled</option>
+                                    </select>
+                                }
+                        </div>
+                        <input type="text" id="orderid" name="orderid" value="@Model.order.OrderId" style="display: none;">
+                        <a asp-action="ManageOrders" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+            </div>
+        </div>    
+    </div>
+</div>

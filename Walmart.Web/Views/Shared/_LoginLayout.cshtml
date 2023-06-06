@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="~/images/Main Page/4809.webp" />
+  <title>Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="~/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+</head>
+<body>
+@RenderBody()
+<div class="flex-container6" id="fc6">
+      <div style="width: 30%" id="copyrights1">
+        <span style="font-size: 12px; font-weight: 300">
+          <span class="fa-regular fa-copyright" style="margin: 30px 2px 50px 20%" id="copyrights2"></span>
+          2022 Walmart. All Rights Reserved.
+        </span>
+      </div>
+      <div style="width: 70%" id="copyrights3">
+        <a href="#" class="a8">CA Private Rights</a>
+        <a href="" class="a8">Your Privacy Choices</a>
+        <a href="" class="a8">Request My Personal Information</a>
+        <a href="" class="a8"> California Supple Chains Act</a>
+      </div>
+    </div>
+  </div>
+  <script src="~/js/script4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+<script>
+    var cookies = document.cookie;
+    var cookieMap = cookies.split(';').reduce(function(map, cookie) {
+    var parts = cookie.split('=');
+    map[parts[0].trim()] = parts[1].trim();
+    return map;
+    }, {});
+
+    var userInput = cookieMap["UserEmail"];
+    var decoded = decodeURIComponent(userInput);
+    window.onload = document.getElementById("ten").innerHTML = decoded;
+    window.onload = document.getElementById("email").value = decoded;
+
+    function showpassword() {
+      var x = document.getElementById("password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+</script>
+</html>

@@ -1,0 +1,139 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="~/css/style3.css">
+<link rel="stylesheet" href="~/css/style2.css">
+@model Walmart.ApplicationCore.Models.ApplicationUser;
+@using Microsoft.AspNetCore.Identity
+@using Walmart.ApplicationCore.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+  string[] fullname = Model.FullName!.Split(' ');
+  string firstname = fullname[0];
+  string lastname = fullname[1];
+}
+<style>
+  body{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+  }
+  #btn1{
+    padding-top: 10px;
+  }
+  .img1{
+    top: -2px;
+  }
+  .edit:hover{
+  text-decoration: none !important;
+  }
+  .cancel:hover{
+    text-decoration: none !important;
+  }
+</style>
+<p style="width: 85%;margin:20px auto;height:fit-content;font-size:14px" id="flex9"><span style="font-weight: 300;">My Account</span> <span style="color: grey;">/</span> Personal Info</p>
+<div style="display:flex;margin:0 auto;width:85%;position:relative;" id="flex10">
+  <div style="display: flex;flex-wrap:wrap;width:25%;border-right:1px solid rgb(220, 220, 220);height:fit-content">
+    <a class="a5" style="width: 100%;margin-left:0;font-weight:900;padding-bottom: 30px;border-bottom: 1px solid rgb(220, 220, 220);height:fit-content;color:black">Hi, @UserManager.GetUserAsync(User)?.Result?.FullName<br>
+      <span style="font-weight: 300;font-size:14px;color:black">Thanks for being a Walmart customer</span>
+    </a>
+      <div style="width: 100%;height: fit-content;border-bottom: 1px solid rgb(220, 220, 220);">
+          <div class="sidebar-box2">
+        <i class="fa-solid fa-receipt"></i>
+        <a asp-action="PurchaseHistory" asp-area="Customer" asp-controller="Home" class="sidebar-text1" style="color: black;text-decoration:none">Purchase History</a>
+      </div>
+      <div class="sidebar-box1">
+        <i class="fa-solid fa-user"></i>
+        <a asp-action="PersonalInfo" asp-area="Customer" asp-controller="Home" class="sidebar-text1" style="color: black;text-decoration:none">Account</a>
+      </div>
+      </div>
+  </div>
+  <div style="width: 35%;padding:0 20px">
+    <a class="a5" style="width: 100%;margin-left:0;font-weight:900;padding: 0 0 30px 0;height:fit-content;color:black">Personal Info<br></a>
+    <div style="box-shadow:0 1px 2px 1px #00000026;border-radius:10px;padding:20px;width:100%;margin:15px 0 35px 0">
+      <div style="position: relative;">
+        <p style="font-weight: 900;font-size:20px">Your personal information</p>
+          <div id="fn">
+            <label style="margin: 0;">Full Name</label>
+            <div style="position:relative">
+              <input type="text" class="form-control" style="padding: 10px 0 10px 0;margin-bottom:20px;background-color:white" disabled value="@Model.FullName">
+              <button style="text-decoration: underline;right:0;position:absolute;top:10px" type="button" class="edit" id="edit_fn">Edit</button>
+            </div>
+          </div>
+          <form id="form_fn" style="display: none;" onsubmit="return checkfn()" asp-action="EditFullname">
+            <p style="font-weight: 900;font-size: 18px;">Edit full name</p>
+            <p style="margin-bottom: 8px;">First Name</p>
+            <input type="text" value="@firstname" style="padding: 15px;width: 100%;border-radius: 5px;border: 0.5px solid;margin-bottom:10px" id="fn1" name="firstname">
+            <p style="color: red;display:none;margin-bottom:10px" id="fn2">First Name can't be empty !</p>
+            <p style="margin-bottom: 8px;">Last Name</p>
+            <input type="text" value="@lastname" style="padding: 15px;width: 100%;border-radius: 5px;border: 0.5px solid;margin-bottom:10px" id="ln1" name="lastname">
+            <p style="color: red;display:none;margin-bottom:0" id="ln2">Last Name can't be empty !</p>
+            <br>
+            <span style="text-decoration:underline;margin-right:10px;font-size:15px;cursor:pointer" class="cancel" id="cancel_fn">Cancel</span>
+            <button class="button2">Save</button>
+          </form>
+          <div id="em">
+            <label style="margin: 0;">Email</label>
+            <div style="position:relative">
+              <input type="text" class="form-control" style="padding: 10px 0 10px 0;margin-bottom:20px;background-color:white" disabled value="@Model.Email">
+              <button style="text-decoration: underline;right:0;position:absolute;top:10px" type="button" class="edit" id="edit_em">Edit</button>
+            </div>
+          </div>
+          <form id="form_em" style="display: none;" onsubmit="checkem(event)" asp-action="EditEmail">
+            <p style="font-weight: 900;font-size: 18px;">Edit email address</p>
+            <input type="text" value="@Model.Email" placeholder="Email address" style="padding: 15px;width: 100%;border-radius: 5px;border: 0.5px solid;margin-bottom:10px" id="em1" name="email">
+            <p style="color: red;display:none;margin-bottom:0" id="em2"></p>
+            <br>
+            <span style="text-decoration:underline;margin-right:10px;font-size:15px;cursor:pointer" class="cancel" id="cancel_em">Cancel</span>
+            <button class="button2">Save</button>
+          </form>
+          <div id="pn">
+            <label style="margin: 0;">Phone Number</label>
+            <div style="position:relative">
+              <input type="text" class="form-control" style="padding: 10px 0 10px 0;margin-bottom:20px;background-color:white" disabled value="@Model.PhoneNumber">
+              <button style="text-decoration: underline;right:0;position:absolute;top:10px" type="button" class="edit" id="edit_pn">Edit</button>
+            </div>
+          </div>
+          <form id="form_pn" style="display: none;" onsubmit="return checkpn()" asp-action="EditPhonenumber">
+            <p style="font-weight: 900;font-size: 18px;">Edit phone number</p>
+            <input type="text" value="@Model.PhoneNumber" placeholder="Phone number" style="padding: 15px;width: 100%;border-radius: 5px;border: 0.5px solid;margin-bottom:10px" id="pn1">
+            <p style="color: red;display:none;margin-bottom:0px" id="pn2">Phone number can only contain numbers !</p>
+            <br>
+            <span style="text-decoration:underline;margin-right:10px;font-size:15px;cursor:pointer" class="cancel" id="cancel_pn">Cancel</span>
+            <button class="button2">Save</button>
+          </form>
+          <div id="add">
+            <label style="margin: 0;">Address</label>
+            <div style="position:relative">
+              <input type="text" class="form-control" style="padding: 10px 0 10px 0;margin-bottom:20px;background-color:white" disabled value="@Model.Address">
+              <button style="text-decoration: underline;right:0;position:absolute;top:10px" type="button" class="edit" id="edit_add">Edit</button>
+            </div>
+          </div>
+          <form id="form_add" style="display: none;" asp-action="EditAddress">
+            <p style="font-weight: 900;font-size: 18px;">Edit address</p>
+            <input type="text" value="@Model.Address" placeholder="Address" style="padding: 15px;width: 100%;border-radius: 5px;border: 0.5px solid;margin-bottom:10px" name="address">
+            <br>
+            <span style="text-decoration:underline;margin-right:10px;font-size:15px;cursor:pointer" class="cancel" id="cancel_add">Cancel</span>
+            <button class="button2">Save</button>
+          </form>
+          <div id="pw">
+            <label style="margin: 0;">Password</label>
+            <div style="position:relative">
+              <input type="password" class="form-control" style="padding: 10px 0 10px 0;margin-bottom:20px;background-color:white" disabled value="aaaaaaaaaaaa">
+              <button style="text-decoration: underline;right:0;position:absolute;top:10px" type="button" class="edit" id="edit_pw">Edit</button>
+            </div>
+          </div>
+          <form id="form_pw" style="display: none;" onsubmit="return checkpw(event)">
+            <p style="font-weight: 900;font-size: 18px;">Edit password</p>
+            <input type="password" placeholder="Current password" style="padding: 15px;width: 100%;border-radius: 5px;border: 0.5px solid;margin-bottom:10px" id="pw1">
+            <p style="color: red;display:none;margin-bottom:10px" id="pw2"></p>
+            <input type="password" placeholder="New password" style="padding: 15px;width: 100%;border-radius: 5px;border: 0.5px solid;margin-bottom:10px" id="pw3">
+            <p style="color: red;display:none;margin-bottom:0px" id="pw4"></p>
+            <br>
+            <span style="text-decoration:underline;margin-right:10px;font-size:15px;cursor:pointer" class="cancel" id="cancel_pw">Cancel</span>
+            <button class="button2">Save</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+@using Microsoft.AspNetCore.Identity
+@using Walmart.ApplicationCore.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+  var userrole = "Admin";
+  var controller = "";
+  if(User.IsInRole("Admin")){
+    userrole = "Admin";
+    controller = "Dashboard";
+  }else{
+    userrole = "Manager";
+    controller = "ManagerDashboard";
+  }
+}
+@if (SignInManager.IsSignedIn(User))
+{
+  @if(User.IsInRole("Admin") || User.IsInRole("Manager")){
+    <div class="box13" id="signin">
+        <a class='fa-solid fa-store icon6' asp-action="Index" asp-area="@userrole" asp-controller="@controller" style="padding: 20px 50px 10px 0;border:none;color:black;text-decoration:none;margin-left:17px">
+          <span class='icontext7' style="position: relative;left:-5px">Manage Shop</span>
+          </a>
+        <br>
+        <a asp-action="PurchaseHistory" asp-area="Customer" asp-controller="Home" class='fa-solid fa-clipboard-list icon6' style="padding: 15px 50px 10px 0;border:none;color:black;text-decoration:none">
+          <span class='icontext7'>Purchase History</span>
+          </a>
+        <br>
+        <a asp-action="PersonalInfo" asp-area="Customer" asp-controller="Home" class='fa-solid fa-user icon6' style="padding: 10px 50px 20px 0;border:none;color:black;text-decoration:none"
+          ><span class='icontext7'>Account</span></a>
+        <br>
+        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+        <button type="submit" class='fa-solid fa-right-from-bracket icon6'><span class='icontext7'>Sign Out</span></button>
+        </form>
+        </div>
+  }else{
+    <div class="box13" id="signin">
+        <a asp-action="PurchaseHistory" asp-area="Customer" asp-controller="Home" class='fa-solid fa-clipboard-list icon6' style="padding: 15px 50px 10px 0;border:none;color:black;text-decoration:none">
+          <span class='icontext7'>Purchase History</span>
+          </a>
+        <br>
+        <a asp-action="PersonalInfo" asp-area="Customer" asp-controller="Home" class='fa-solid fa-user icon6' style="padding: 10px 50px 20px 0;border:none;color:black;text-decoration:none"
+          ><span class='icontext7'>Account</span></a>
+        <br>
+        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+        <button type="submit" class='fa-solid fa-right-from-bracket icon6'><span class='icontext7'>Sign Out</span></button>
+        </form>
+        </div>
+  }
+}
+else
+{
+    <div class="box13" id="signin">
+        <a asp-controller="Home" asp-action="Enter_Email"><button class='button8' style="font-size: 14px;">Sign in or create account</button></a>
+        <br />
+        <a asp-action="PurchaseHistory" asp-area="Customer" asp-controller="Home" class='fa-solid fa-clipboard-list icon6' style="padding: 15px 50px 10px 0;border:none;color:black;text-decoration:none">
+          <span class='icontext7'>Purchase History</span>
+          </a>
+        <br>
+        <a asp-action="PersonalInfo" asp-area="Customer" asp-controller="Home" class='fa-solid fa-user icon6' style="padding: 10px 50px 20px 0;border:none;color:black;text-decoration:none"
+          ><span class='icontext7'>Account</span></a>
+        <br>
+      </div>
+}

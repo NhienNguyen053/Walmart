@@ -1,0 +1,42 @@
+@using Microsoft.AspNetCore.Identity
+@using Walmart.ApplicationCore.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    string? fullname = @UserManager.GetUserAsync(User)?.Result?.FullName;
+    string[]? splited = fullname?.Split(' ');
+    if(splited?[0].Length >= 5){
+      string? firstname = splited?[0].Substring(0, 5);
+      string? lastname = splited?[1].Substring(0, 1);
+    <button class="fa-regular fa-user icon2" id="icon3" onclick="myfunction2()">
+        <span class='icontext2'
+          >Hi, @firstname @lastname<br /><span style='font-weight: bold;margin-left: 5px;'
+            >Account</span
+          ></span
+        >
+      </button>
+    }else{
+      string? firstname = splited?[0];
+      string? lastname = splited?[1].Substring(0, 1);
+    <button class="fa-regular fa-user icon2" id="icon3" onclick="myfunction2()">
+        <span class='icontext2'
+          >Hi, @firstname @lastname<br /><span style='font-weight: bold;margin-left: 5px;'
+            >Account</span
+          ></span
+        >
+      </button>
+    }
+}
+else
+{
+    <button class="fa-regular fa-user icon2" id="icon3" onclick="myfunction2()">
+        <span class='icontext2'
+          >Sign In<br /><span style='font-weight: bold;margin-left: 5px;'
+            >Account</span
+          ></span
+        >
+      </button>
+}

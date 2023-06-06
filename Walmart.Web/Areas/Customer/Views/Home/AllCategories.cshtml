@@ -1,0 +1,34 @@
+@model List<Walmart.ApplicationCore.DtoModels.MainPageCategoriesDto>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="~/css/style3.css">
+<style>
+  #btn1{
+    padding-top: 10px;
+  }
+  .img1{
+    top: -2px;
+  }
+</style>
+<div style="width: 85%;display:flex;flex-wrap:wrap;margin:auto" id="allcategories">
+    <p style="font-weight:900;font-size:20px;border-bottom: 1px solid rgb(225, 225, 225);width:100%;padding:20px 0">Browse Departments</p>
+    <div class="row row-cols-3">
+    @foreach (var item in Model)
+    {
+        <div class="col cate3" style="display: flex;box-shadow:0 1px 2px 1px #00000026;border-radius:10px;padding:20px;margin:0 10px 20px 10px;width:31.5%">
+            <div style="width: 65%;">
+                <a href="@Url.Action("SearchProducts", "Home", new { categoryid = @item.CategoryId})" style="text-decoration: none;color:black;font-size:20px;font-weight:900;cursor:pointer">@item.Category_Name</a>
+                @foreach (var item2 in item.SubCategories!)
+                {
+                    <a href="@Url.Action("SearchProducts", "Home", new { subcategoryid = @item2.SubCategoryId})" style="text-decoration: none;color:black;font-size:15px;font-weight:300;display:block;margin:15px 0;cursor:pointer" class="underline1">@item2.SubCategory_Name</a>
+                }
+            </div>
+            <div style="width: 35%;">
+                <img src="~/@item.Category_Image" style="width: 100%;" alt="">
+            </div>
+        </div>
+
+        
+    }
+    </div>
+</div>

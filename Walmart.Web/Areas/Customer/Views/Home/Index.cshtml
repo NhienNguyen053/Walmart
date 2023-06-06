@@ -1,0 +1,183 @@
+﻿@using Walmart.ApplicationCore.DtoModels;
+@model IEnumerable<Walmart.ApplicationCore.DtoModels.ProductsWithPhotoDto>
+@{
+  var count = 0;
+}
+<div style="display: flex; flex-wrap: wrap">
+    <div style="background-color: #e6f1fc; flex: 1 1; width: 15%"></div>
+    <main>
+      <div class="flex-container3">
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <a href="@Url.Action("SearchProducts", "Home", new { subcategoryid = 6})"><img src="~/images/Main Page/ad1.png" alt="" width="100%" />
+              <img src="~/images/Main Page/image-removebg-preview (1).png" alt="" width="32%" style="position: absolute; top: 5%; left: 5%" />
+            </a>
+          </div>
+          <div class="mySlides fade">
+            <a href="@Url.Action("SearchProducts", "Home", new { subcategoryid = 7})"><img src="~/images/Main Page/advertise4.png" alt="" width="100%" />
+              <img src="~/images/Main Page/image-removebg-preview (1).png" alt="" width="32%" style="position: absolute; top: 5%; left: 5%" />
+            </a>
+          </div>
+          <div class="mySlides fade">
+            <a href="@Url.Action("SearchProducts", "Home", new { subcategoryid = 14})"><img src="~/images/Main Page/advertise5.png" alt="" width="100%" />
+            </a>
+            <img src="~/images/Main Page/image-removebg-preview (1).png" alt="" width="32%" style="position: absolute; top: 5%; left: 5%" />
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <div class="slideshow-transition">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+          </div>
+        </div>
+        <div class="box1">
+          <div style="width: 100%">
+            <h2 style="font-size: 17px; margin: 2.5% 0 0 3%">
+              Deals for days
+            </h2>
+            <a href="@Url.Action("ProductDetails", "Home", new { id = @Model.FirstOrDefault()!.ProductId})" class="imgtext3">View all</a>
+          </div>
+          <a style="margin: auto;" href="@Url.Action("ProductDetails", "Home", new { id = @Model.FirstOrDefault()!.ProductId})"><img src="~/@Model.FirstOrDefault()!.Image_Path" alt="" style="border-radius:0;margin:auto;max-height:271px"/></a>
+          <p style="position: relative; font-weight: 700; margin: 1% 0 0 3%;width:100%">
+            $@Model.FirstOrDefault()!.Product_Price
+          </p>
+          <p class="imgtext4">
+            @Model.FirstOrDefault()!.Product_Name
+          </p>
+        </div>
+      </div>
+      <div class="flex-container4">
+        <div class="container1">
+          <div class="box2">
+            <span style="margin: 5px 0 15px 10px;white-space: nowrap;" id="re1">Reserve pickup or deliveries</span>
+            <button class="button5">See times</button>
+          </div>
+          <div class="box3">
+            <span style="margin-left: 10px">Popular services</span>
+            <a href="#" class="a1">View All</a>
+            <div style="display: flex;padding: 0 5% 0 5%;column-gap: 4%;">
+              <a href="#" class="a2">
+                <img src="~/images/Main Page/icon1.png" alt="" width="100%" />
+                <p style="left: 12%">Pharmacy</p>
+              </a>
+              <a href="#" class="a2">
+                <img src="~/images/Main Page/icon2.png" alt="" width="100%" />
+                <p style="left: 18%">Auto Care &nbsp;&nbsp;&nbsp;Center</p>
+              </a>
+              <a href="#" class="a2">
+                <img src="~/images/Main Page/icon3.png" alt="" width="100%" />
+                <p>Custom Cakes</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="box4" id="box4st">
+          <span style="margin: 10px 0 0 0; width: 100%">New deals, right here</span>
+          <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 4})" class="a3" style="top: 45px">
+            <img src="~/images/Main Page/icon4.webp" alt="" width="100%" />
+            <br />
+            <span class="imgtext5">Up to 30% off tech</span>
+          </a>
+          <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 2})" class="a3" style="top: 45px; left: 62%">
+            <img src="~/images/Main Page/icon5.webp" alt="" width="100%" />
+            <br />
+            <span class="imgtext5">Up to 40% off toys</span>
+          </a>
+          <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 1})" class="a3" style="top: 210px; left: 45px">
+            <img src="~/images/Main Page/icon6.webp" alt="" width="100%" />
+            <br />
+            <span class="imgtext5">Up to 40% off fashion</span>
+          </a>
+          <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 8})" class="a3" style="top: 210px; left: 240px">
+            <img src="~/images/Main Page/icon7.webp" alt="" width="100%" />
+            <br />
+            <span class="imgtext5">Up to 40% off patio & garden
+          </a>
+        </div>
+        <div class="box4" style="width: 32.9%;padding: 0 4% 0 4%;">
+          <span style="margin: 10px 0 0 0; width: 100%">New deals, right here</span>
+          <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 4})" class="a3" style="top: 45px">
+            <img src="~/images/Main Page/icon4.webp" alt="" width="100%" />
+            <br />
+            <span class="imgtext5">Up to 30% off tech</span>
+          </a>
+          <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 2})" class="a3" style="top: 45px; left: 62%">
+            <img src="~/images/Main Page/icon5.webp" alt="" width="100%" />
+            <br />
+            <span class="imgtext5">Up to 40% off toys</span>
+          </a>
+          <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 1})" class="a3" style="top: 210px; left: 45px">
+            <img src="~/images/Main Page/icon6.webp" alt="" width="100%" />
+            <br />
+            <span class="imgtext5">Up to 40% off fashion</span>
+          </a>
+          <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 8})" class="a3" style="top: 210px; left: 240px">
+            <img src="~/images/Main Page/icon7.webp" alt="" width="100%" />
+            <br />
+            <span class="imgtext5">Up to 40% off patio & garden
+          </a>
+        </div>
+      </div>
+      <a href="#" style="height: fit-content;">
+        <img src="~/images/Main Page/icon12.png" alt="" class="ad1" />
+      </a>
+      <a href="#"><img src="~/images/Main Page/icon13.png" alt="" class="ad2"></a>
+      <div class="box9" style="border: none;padding: 0 0 15px 0;">Build your cart</div>
+      <div class="owl-carousel owl-one">
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("ProductDetails", "Home", new { id = @item.ProductId})" class="item" style="border-radius: 10px;">
+              <div style="height: 189.26px;"><img src="~/@item.Image_Path" alt="" style="width: 100%;height: 100%;object-fit: contain;"/></div>
+              <p style="font-weight: 700;font-size:16px">$@item.Product_Price</p>
+              <p style="margin-top: 5px;">@item.Product_Name</p>
+              <button style="border: 1px solid black;border-radius:25px;padding:7px 17px 7px 17px;margin:5px 0 15px 0">Options</button>
+            </a>
+        }
+      </div>
+      <div class="box9">Get a head start & save</div>
+      <div class="owl-carousel owl-two">
+        <a href="@Url.Action("SearchProducts", "Home", new { subcategoryid = 11})"><img src="~/images/Main Page/i7.png" alt=""></a>
+        <a href="@Url.Action("SearchProducts", "Home", new { subcategoryid = 1})"><img src="~/images/Main Page/i8.png" alt=""></a>
+        <a href="@Url.Action("SearchProducts", "Home", new { subcategoryid = 2})"><img src="~/images/Main Page/i9.png" alt=""></a>
+        <a href="@Url.Action("SearchProducts", "Home", new { subcategoryid = 3})"><img src="~/images/Main Page/i10.png" alt=""></a>
+      </div>
+      <a href="#">
+        <img src="~/images/Main Page/credit-card1.png" alt="" class="ad1" />
+      </a>
+      <a href="#"><img src="~/images/Main Page/credit-card2.png" alt="" class="ad2"></a>
+      <div class="box9" style="border-style: none none none none; padding-bottom: 0">
+        Your favorite departments
+        <a href="" class="a4" style="margin-right: 0;">View all</a>
+      </div>
+      <div class="owl-carousel owl-three" style="width: fit-content;">
+        @foreach (var category in (List<MainPageCategoriesDto>)ViewData["MainPageData"]!)
+        {
+          count++;
+          if(count <= 8){
+          <a href="@Url.Action("SearchProducts", "Home", new { categoryid = @category.CategoryId})">
+            <img src="~/@category.Category_Image">
+            <p>@category.Category_Name</p>
+          </a>
+          }else {
+            break;
+          }
+        }
+        <a href=""><img src="" alt=""></a>
+      </div>
+      <div class="box9" style="border-style: solid none none none;padding: 20px 0 20px 0;">
+        For you
+        <div class="box11"></div>
+      </div>
+      <div class="owl-carousel owl-four">
+        <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 4})"><img src="~/images/Main Page/i11.png" alt=""></a>
+        <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 7})"><img src="~/images/Main Page/i12.png" alt=""></a>
+        <a href="@Url.Action("SearchProducts", "Home", new { categoryid = 5})"><img src="~/images/Main Page/i13.png" alt=""></a>
+      </div>
+    </main>
+    <div style="background-color: #e6f1fc; flex: 1 1; width: 15%"></div>
+    <div class="container">
+      <p>We'd love to hear what you think!</p>
+      <button class="button7">Give feedback</button>
+    </div>
+  </div>

@@ -1,0 +1,188 @@
+@model Walmart.ApplicationCore.DtoModels.DashboardDto
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard Analytics</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Dashboard Analytics</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-lg-7 col-md-12">
+                <!-- support-section start -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card support-bar overflow-hidden">
+                            <div class="card-body pb-0">
+                                <h2 class="m-0">@Model.Total_Order</h2>
+                                <span class="text-c-blue">Total Orders</span>
+                                <p class="mb-3 mt-3">Total number of orders placed.</p>
+                            </div>
+                            <div id="support-chart"></div>
+                            <div class="card-footer bg-primary text-white">
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <h4 class="m-0 text-white">@Model.Paid_Order</h4>
+                                        <span>Paid</span>
+                                    </div>
+                                    <div class="col">
+                                        <h4 class="m-0 text-white">@Model.Shipping_Order</h4>
+                                        <span>Shipping</span>
+                                    </div>
+                                    <div class="col">
+                                        <h4 class="m-0 text-white">@Model.Pending_Order</h4>
+                                        <span>Pending</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card support-bar overflow-hidden">
+                            <div class="card-body pb-0">
+                                <h2 class="m-0">@Model.Total_User</h2>
+                                <span class="text-c-green">Total Users</span>
+                                <p class="mb-3 mt-3">Total number of users registered.</p>
+                            </div>
+                            <div id="support-chart1"></div>
+                            <div class="card-footer bg-success text-white">
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <h4 class="m-0 text-white">@Model.Customer</h4>
+                                        <span>Customer</span>
+                                    </div>
+                                    <div class="col">
+                                        <h4 class="m-0 text-white">@Model.Manager</h4>
+                                        <span>Manager</span>
+                                    </div>
+                                    <div class="col">
+                                        <h4 class="m-0 text-white">@Model.Admin</h4>
+                                        <span>Admin</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- support-section end -->
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <!-- page statustic card start -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="text-c-yellow">$@Model.Total_Earnings</h4>
+                                        <h6 class="text-muted m-b-0">All Earnings</h6>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <i class="fa-solid fa-chart-simple f-28"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-c-yellow">
+                                <div class="row align-items-center">
+                                    <div class="col-9">
+                                        <p class="text-white m-b-0"></p>
+                                    </div>
+                                    <div class="col-3 text-right">
+                                        <i class="fa-solid fa-arrow-trend-up text-white f-16"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="text-c-green">@Model.Total_Category</h4>
+                                        <h6 class="text-muted m-b-0">Categories</h6>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <i class="fa-regular fa-file-lines f-28"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-c-green">
+                                <div class="row align-items-center">
+                                    <div class="col-9">
+                                        <p class="text-white m-b-0"></p>
+                                    </div>
+                                    <div class="col-3 text-right">
+                                        <i class="fa-solid fa-arrow-trend-up text-white f-16"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="text-c-red">@Model.Total_Subcategory</h4>
+                                        <h6 class="text-muted m-b-0">Subcategories</h6>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <i class="fa-regular fa-calendar f-28"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-c-red">
+                                <div class="row align-items-center">
+                                    <div class="col-9">
+                                        <p class="text-white m-b-0"></p>
+                                    </div>
+                                    <div class="col-3 text-right">
+                                        <i class="fa-solid fa-arrow-trend-down text-white f-16"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="text-c-blue">@Model.Total_Product</h4>
+                                        <h6 class="text-muted m-b-0">Products</h6>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <i class="fa-regular fa-thumbs-down f-28"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-c-blue">
+                                <div class="row align-items-center">
+                                    <div class="col-9">
+                                        <p class="text-white m-b-0"></p>
+                                    </div>
+                                    <div class="col-3 text-right">
+                                        <i class="fa-solid fa-arrow-trend-up text-white f-16"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

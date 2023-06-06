@@ -1,0 +1,94 @@
+@model Walmart.ApplicationCore.ViewModels.UserVM;
+@{
+    int i = 0;
+    var total = Model.Total;
+    var Pages = total/10;
+    int j = 0;
+}
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard Analytics</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Manage Users</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12" style="top: -90px;left:10px;max-width:98.5%">
+        <div class="card table-card">
+            <div class="card-header">
+                <h5>Manage Users</h5>
+                <h6 style="font-weight: 500;margin-top:10px">Sort by: User's role</h6>
+                <select id="roleSelect" style="width: 120px;" onchange="changerole()">
+                    <option>All</option>
+                    <option>Customer</option>
+                    <option>Manager</option>
+                    <option>Admin</option>
+                </select>
+                <div class="card-header-right">
+                    <div class="btn-group card-option">
+                        <a class="btn btn-primary rounded" asp-controller="Dashboard" asp-action="CreateUser" asp-area="Admin">Create User</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>FullName</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Address</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                @foreach (var user in Model.DataList)
+                                {
+                                <tr>
+                                <td>@user.Id</td>
+                                <td>@user.FullName</td>
+                                <td>@user.Email</td>
+                                <td>@user.PhoneNumber</td>
+                                <td>@user.Address</td>
+                                <td>@user.RoleName</td>
+                                <td><a class="fa-solid fa-pen-to-square text-warning" style="margin-right: 12px;" href="@Url.Action("EditUser", "Dashboard", new { id = @user.Id})"></a></td>
+                                </tr>
+                                }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12" style="top: -90px;left:10px;max-width:98.5%;display:flex;justify-content:center">
+        @for (i = 0; i <= Pages; i++)
+        {
+            {
+                j = i + 1;
+            }
+            <a href="@Url.Action("ManageUsers", "Dashboard", new { id = @j})" style="border:1px solid grey;padding:10px 15px">@j</a>
+        }
+    </div>
+<script>
+    $(document).ready(function() {
+        var selectedValue = '@(ViewData["SelectedValue"] as string)';
+        
+        if (selectedValue) {
+            $('#roleSelect').val(selectedValue); // Set the selected value
+        }
+    });
+</script>

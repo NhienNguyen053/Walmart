@@ -1,0 +1,20 @@
+@model bool;
+@{
+    Layout = "_MainLayout2";
+}
+@if (Model == true)
+{
+    <div style="margin: 50px auto auto auto;">
+        <p style="font-weight: 900;font-size: 26px;text-align: center;color: green;">Order created successfully</p>
+        <p style="text-align: center;font-size: 18px;">Review your orders or continue shopping</p>
+        <a asp-action="PurchaseHistory" class="button2" style="float: left;text-decoration:none">Purchase History</a>
+        <a asp-action="AllCategories" class="button2" style="float: right;text-decoration:none">Continue Shopping</a>
+    </div>
+}else {
+    <div style="margin: 50px auto auto auto;">
+        <p style="font-weight: 900;font-size: 26px;text-align: center;color: red;">Order created failed. Try again later!</p>
+        <p style="text-align: center;font-size: 18px;">Something has occured. Check your cart or continue shopping</p>
+        <a asp-action="CartDetails" class="button2" style="float: left;text-decoration:none">Go to cart</a>
+        <a asp-action="AllCategories" class="button2" style="float: right;text-decoration:none">Continue Shopping</a>
+    </div>
+}

@@ -1,0 +1,155 @@
+@model Walmart.ApplicationCore.DtoModels.EditProductDto;
+@{
+        var detailTab = "active";
+        var photoTab = "";
+        if (Model.ShowPhoto)
+        {
+            detailTab = "";
+            photoTab = "active";
+        }
+    }
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard Analytics</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Edit Product</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12" style="top: -90px;left:10px;max-width:98.5%">
+        <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-top: 3px;">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link @detailTab" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Details</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link @photoTab" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Images</button>
+        </li>
+        </ul>
+        <div class="card2 table-card tab-content">
+            <div class="card-body p-4 tab-pane @detailTab" id="home" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                <form method="post" onsubmit="return checkform3()" asp-action="EditProduct" style="display: inline;">
+                    <p style="font-weight: 900;font-size:20px">Product Number: #@Model.Product_Number</p>
+                    <input class="form-control" style="padding-left: 12px;width:200px;display:none" value="@Model.Product_Number" name="productnumber">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Category</label>
+                        <select class="form-control" style="padding-left: 12px;" id="category">
+                            <option style="display: none;">Select a category</option>
+                            @foreach (var category in Model.Categories!)
+                            {
+                                @if (category.CategoryId == Model.Category_Id)
+                                {
+                                    <option id="@category.CategoryId" value="@category.Category_Name" selected>@category.Category_Name</option>
+                                }else{
+                                    <option id="@category.CategoryId" value="@category.Category_Name">@category.Category_Name</option>
+                                }
+                            }
+                        </select>
+                        <div class="mt-1 text-danger" id="c1" style="display: none;">Please pick a category !</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">SubCategory</label>
+                        @if(Model.SubCategories == null){
+                        <select class="form-control" style="padding-left: 12px;" disabled="true" id="subcate" name="subcate">
+                            <option style="display: none;">Select a subcategory</option>
+                        </select>
+                        }else {
+                        <select class="form-control" style="padding-left: 12px;" id="subcate" name="subcate">
+                            <option style="display: none;">Select a subcategory</option>
+                            @foreach (var subcategory in Model.SubCategories)
+                            {
+                                @if (subcategory.SubCategoryId == Model.SubCategory_Id)
+                                {
+                                    <option id="@subcategory.SubCategoryId" selected>@subcategory.SubCategory_Name</option>
+                                }else {
+                                    <option id="@subcategory.SubCategoryId">@subcategory.SubCategory_Name</option>
+                                }
+                            }
+                        </select>
+                        }
+                        <div class="mt-1 text-danger" id="sc1" style="display: none;">Please pick a subcategory !</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Product Name</label>
+                        <input class="form-control" id="productname" name="productname" placeholder="Enter Product Name" value="@Model.Product_Name">
+                        <div class="mt-1 text-danger" id="pn1" style="display: none;">Please enter product name !</div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="exampleInputEmail1" style="width: 100%;margin-bottom: 12px">Product Price</label>
+                        <div class="input-grout-prepend" >
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" id="productprice" name="productprice" placeholder="Enter Product Price" value="@Model.Product_Price">
+                        <div class="mt-1 text-danger" id="pp1" style="display: none;width:100%">Product price can only be a number !</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Product Quantity</label>
+                        <input class="form-control" id="productquantity" name="productquantity" placeholder="Enter Product Quantity" value="@Model.Product_Quantity">
+                        <div class="mt-1 text-danger" id="pq1" style="display: none;">Product quantity can only be a number !</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="floatingTextarea2">Product Description</label>
+                        <textarea class="form-control" placeholder="Leave a description here" id="productdescription" name="productdescription" style="height: 360px;padding-left:0">@Model.Product_Description</textarea>
+                        <div class="mt-1 text-danger" id="pd1" style="display: none;">Please enter product description !</div>
+                    </div>
+                    <div class="mt-1 text-danger" id="pn1" style="display: none;">Please enter product description !</div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Product Status <span class="text-warning">&#40;Product with no image will have draft status!&#41;</span></label>
+                        <select asp-for="Product_Status" class="form-control" style="width: 200px;padding-left:10px;border-bottom:none" id="productstatus" name="productstatus">
+                            <option>Draft</option>
+                            <option>Active</option>
+                            <option>Sold</option>
+                        </select>
+                    </div>
+                    <input type="text" id="productid" name="productid" value="@Model.ProductId" style="display: none;">
+                    <input type="text" id="subcategoryid" name="subcategoryid" value="@Model.SubCategory_Id" style="display: none;">
+                    <a asp-action="ManageProducts" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="card-body tab-pane p-4 @photoTab" id="profile" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <form method="post" asp-action="UploadProductImages" style="display: inline;" enctype="multipart/form-data">
+                    <div class="form-group" style="display: inline;">
+                    <label for="exampleInputEmail1">Product Images</label>
+                    <br>
+                    <input class="form-control" style="border: none;width:fit-content;display:none" id="productimages" name="productimages" type="file" accept="image/png, image/jpeg, image/jpg, image/webp" onchange="this.form.submit()" multiple>
+                    @if (Model.ImagePaths != null && Model.ImagePaths.Count > 0)
+                    {
+                        @foreach (var images in Model.ImagePaths!)
+                        {
+                        <div id="image-preview" style="width: 175px;height:175px;display:inline-block;margin-top:10px;margin-right:12px">
+                        <img src="~/@images.Image_Path" alt="Image preview" style="max-width:100%;max-height:100%;display:block;margin:auto" id="preview">
+                        <a class="fa-solid fa-circle-xmark" style="color:red;margin-left:77.5px;margin-top:7px;cursor:pointer;width:fit-content" asp-action="DeleteProductImage" asp-route-id="@images.ProductPhotoId"></a>
+                        </div>
+                        }
+                        <br>
+                        <br>
+                        <input type="button" class="btn btn-primary" value="Upload" onclick="document.getElementById('productimages').click();">
+                    }
+                    else
+                    {
+                    <label class="text-warning">There are no images for this product !</label>
+                    <br>
+                    <br>
+                    <input type="button" class="btn btn-primary" value="Upload" onclick="document.getElementById('productimages').click();">
+                    }
+                    </div>
+                    <input type="text" id="pnum" name="pnum" value="@Model.Product_Number" style="display:none;">
+                    <a asp-action="ManageProducts" class="btn btn-secondary">Cancel</a>
+                    <input type="text" id="pnum" name="pid" value="@Model.ProductId" style="display:none;">
+                </form>
+            </div>
+        </div>    
+    </div>
+</div>
+<script src="~/js/script5.js"></script>

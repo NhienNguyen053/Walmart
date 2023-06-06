@@ -1,0 +1,17 @@
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.Infrastructure.deps.json
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.Infrastructure.runtimeconfig.json
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.Infrastructure.dll
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.Infrastructure.pdb
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.ApplicationCore.dll
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.ApplicationCore.pdb
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.csproj.AssemblyReference.cache
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.AssemblyInfoInputs.cache
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.AssemblyInfo.cs
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.csproj.CopyComplete
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.dll
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\refint\Walmart.Infrastructure.dll
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.pdb
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.genruntimeconfig.cache
+D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\ref\Walmart.Infrastructure.dll

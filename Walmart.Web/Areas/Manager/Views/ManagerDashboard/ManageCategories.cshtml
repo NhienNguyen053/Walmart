@@ -1,0 +1,80 @@
+@model List<Walmart.ApplicationCore.DtoModels.CategoryDto>
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard Analytics</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Manage Categories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12" style="top: -90px;left:10px;max-width:98.5%">
+        <div class="card table-card">
+            <div class="alert alert-dismissible fade show" role="alert" style="margin:12px 12px 0 12px;display:none" id="alert">
+                <strong id="alerttext"></strong>
+                <button type="button" class="close" data-bs-dismiss="alert" style="top: -3px">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class="card-header">
+                <h5>Manage Categories</h5>
+                <div class="card-header-right">
+                    <div class="btn-group card-option">
+                        <a class="btn btn-primary rounded" asp-controller="ManagerDashboard" asp-action="CreateCategory" asp-area="Manager">Create Category</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <div class="row row-cols-2" style="width:100%;margin-right:0;margin-left:0;padding-bottom:10px">
+                        @foreach (var category in Model)
+                        {
+                        <div class="col column1 cate1" id="category_@category.CategoryId">
+                            <div>
+                                <span style="font-weight: 700; font-size: 18px">@category.Category_Name</span>
+                                <span style="float: right;margin-top:3px">
+                                    <a class="fa-solid fa-plus text-primary" href="@Url.Action("AddSubCategory", "ManagerDashboard", new { id = @category.CategoryId})"></a>
+                                    <a class="fa-solid fa-pen-to-square text-warning" style="margin-left: 8px;" href="@Url.Action("CategoryDetails", "ManagerDashboard", new { id = @category.CategoryId})"></a>
+                                </span>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-6" style="flex-grow: 1;max-width:75%">
+                                @if(category?.SubCategories != null){
+                                @foreach (var item in category.SubCategories)
+                                {
+                                    <form method="post" asp-action="UpdateSubCategory" onsubmit="return checknull3(@item.SubCategoryId)">
+                                        <div class="form-group" id="subcategory_@item.SubCategoryId">
+                                            <input type="text" name="categoryid" value="@item.Category_Id" style="display: none;">
+                                            <input type="text" name="subcategoryid" value="@item.SubCategoryId" style="display: none;">
+                                            <span id="@item.SubCategoryId">@item.SubCategory_Name</span>
+                                            <p class="text-danger" style="margin:0 0 3px 0;display:none" id="warn-@item.SubCategoryId">SubCategory name can't be empty !</p>
+                                            <span style="margin-top:3px">
+                                            <button type="submit" class="fa-solid fa-check text-primary" style="outline:none;background-color:white;border:none;padding:0px;display:none" id="checkmark-@item.SubCategoryId"></button>
+                                            <button type="button" class="fa-solid fa-pen-to-square text-warning" style="margin-left: 8px;border: none;padding: 0;background-color: white;outline:none" onclick="replacewithinput(@item.SubCategoryId)"></button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                }}
+                                </div>
+                                @if (category?.Category_Image != null)
+                                {
+                                    <img src="~/@category?.Category_Image" alt="" style="width: 140px;height:140px">
+                                }
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

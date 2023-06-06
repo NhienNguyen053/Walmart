@@ -1,0 +1,70 @@
+﻿@page
+@using Walmart.ApplicationCore.Utilities
+@model RegisterModel
+@{
+    Layout = "_RegisterLayout";
+    ViewData["Title"] = "Register";
+}
+@if (User.IsInRole(WebsiteRole.Customer))
+{
+  
+}
+<form class="flex-container5" onsubmit="return checkform()" method="post">
+    <img src="~/images/Main Page/4809.webp" alt="" class="form-img1" />
+    <br />
+    <p class="form-text1">Create your Walmart account</p>
+    <p class="form-text2" style="margin-left: 0">Email address:</p>
+    <p id="ten" class="form-text2" style="margin-left: 0"></p>
+    <a href="@Url.Action("Enter_Email", "Home", new { area = "Customer" })" class="a7" style="left: 80%">Change</a>
+    <p class="form-text2" style="margin-left: 0">First Name</p>
+    <input type="text" class="input2" id="firstname" name="firstname" />
+    <p class="validation1" style="margin-left: 0" id="fn1"></p>
+    <p class="form-text2" style="margin: 8% 0 1% 0">Last Name</p>
+    <input type="text" class="input2" id="lastname" name="lastname" />
+    <p class="validation1" style="margin-left: 0" id="ln1">
+      Last name is required
+      <span class="fa-solid fa-circle-exclamation"></span>
+    </p>
+    <p class="form-text2" style="margin: 8% 0 1% 0">Create a password</p>
+    <input type="password" class="input2" id="password" style="padding-right: 16%" name="password" />
+    <input type="button" value="Show" onclick="showpassword()" class="submit1" />
+    <p class="form-text3">Your password must include the following:</p>
+    <p class="form-text3">
+      <span class="fa-solid fa-x" style="display: none; color: red" id="red1"></span>
+      <span class="fa-solid fa-check" style="color: green; display: none" id="green1"></span>
+      8-100 characters
+    </p>
+    <p class="form-text3">
+      <span class="fa-solid fa-x" style="display: none; color: red" id="red2"></span>
+      <span class="fa-solid fa-check" style="color: green; display: none" id="green2"></span>
+      Upper & lowercase letters
+    </p>
+    <p class="form-text3">
+      <span class="fa-solid fa-x" style="display: none; color: red" id="red3"></span>
+      <span class="fa-solid fa-check" style="color: green; display: none" id="green3"></span>
+      At least one number and special character
+    </p>
+    <span class="form-text3"><input type="checkbox" />Keep me signed in</span>
+    <br />
+    <span class="form-text3"><input type="checkbox" />Send me emails about new arrivals, hot items,
+      daily savings, & more.</span>
+    <p class="form-text3">
+      By clicking Create Account, you acknowledge you have read and agreed to
+      our
+      <a href="" style="font-weight: 500; color: black">Terms of Use</a> and
+      <a href="" style="font-weight: 500; color: black"> Privacy Policy. </a>
+    </p>
+    <button class="button11" type="submit" style="width: 100%; top: -10px">
+      Create Account
+    </button>
+    <p style="color: green; margin: auto; display: none" id="verify">
+      Account created successfully
+    </p>
+    <input type="text" id="email" name="email" value="" style="display: none" />
+    <input type="text" id="fullname" name="fullname" value="" style="display: none;">
+    <input type="text" id="username" name="username" value="" style="display: none;">
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,73 @@
+@model Walmart.Web.Areas.Identity.Pages.Account.RegisterModel;
+
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard Analytics</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Create User</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12" style="top: -90px;left:10px;max-width:98.5%">
+        <div class="card table-card">
+            <div class="card-body p-4">
+                <form method="post" onsubmit="return checkform2()" asp-page="/Account/Register" asp-area="Identity">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input class="form-control" id="email" name="email" placeholder="Enter email">
+                        <span class="mt-1 text-danger" style="display: none;" id="em1">
+                            Please provide a valid email address !
+                        </span>
+                        <span class="mt-1 text-danger">@TempData["Error"]</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">First Name</label>
+                        <input class="form-control" id="firstname" name="firstname" placeholder="Enter First Name">
+                        <div class="mt-1 text-danger" id="fn1" style="display: none;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Last Name</label>
+                        <input class="form-control" id="lastname" name="lastname" placeholder="Enter Last Name">
+                        <div class="mt-1 text-danger" id="ln1" style="display: none;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Phone Number</label>
+                        <input class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter Phone Number">
+                        <div class="mt-1 text-danger" id="pn1" style="display: none;">Phone number can only contain numbers !</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Address</label>
+                        <input class="form-control" id="address" name="address" placeholder="Enter Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">User Role</label>
+                        <select class="form-control" style="width: 200px;padding-left:10px;border-bottom:none" id="Role" name="Role">
+                            <option>Customer</option>
+                            <option>Manager</option>
+                            <option>Admin</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
+                        <div class="mt-1 text-danger" id="ps1" style="display: none;">Password must be 8-100 character long, has at least one upper and lower case character, at least one number and special character !</div>
+                    </div>
+                    <input type="text" id="fullname" name="fullname" value="" style="display: none;">
+                    <input type="text" id="username" name="username" value="" style="display: none;">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>    
+    </div>
+</div>

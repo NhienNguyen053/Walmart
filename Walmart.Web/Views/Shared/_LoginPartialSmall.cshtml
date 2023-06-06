@@ -1,0 +1,21 @@
+@using Microsoft.AspNetCore.Identity
+@using Walmart.ApplicationCore.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div style="display: flex;margin:0">
+      <img src="~/images/Main Page/4809.webp" alt="" width="10%" onclick="closeNav()" style="min-width: 28.550px;">
+      <a class="a5">Hi, @UserManager.GetUserAsync(User)?.Result?.FullName</a>
+    </div>
+}
+else
+{
+    <div style="display: flex;">
+      <img src="~/images/Main Page/4809.webp" alt="" width="10%" onclick="closeNav()" style="min-width: 28.550px;">
+      <a asp-controller="Home" asp-action="Enter_Email"><button class='button8' style="margin:0 0 0 15px;font-size:14px">Sign in or create account</button></a>
+    </div>
+}
+</ul>

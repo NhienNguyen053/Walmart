@@ -1,0 +1,364 @@
+﻿@using Walmart.Web.ViewComponents;
+@using Walmart.ApplicationCore.DtoModels;
+@{
+  var count = 0;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walmart.com | Save Money. Live Better</title>
+  <link rel="icon" type="image/png" href="~/images/Main Page/4809.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="~/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .owl-carousel {
+      width: 96%;
+      margin: 0.5% 0 0.5% 2%;
+      z-index: 0;
+    }
+
+    .active::after {
+      content: none !important;
+    }
+
+    .owl-carousel img {
+      border-radius: 0;
+    }
+    .link:hover{
+      text-decoration: underline !important;
+    }
+  </style>
+</head>
+
+<body id="body1" style="min-height: 100vh">
+  <div id="mySidebar" class="sidebar">
+    <partial name= "_LoginPartialSmall"/>
+    <div class="sidebar-box1" style="margin-top: 50px;display:none">
+      <img src="./Images/Main Page/wplus-icon-blue.svg" alt="" width="8%">
+      <span class="sidebar-text1" style="bottom:4.5px">Walmart +</span>
+    </div>
+    @if(User.IsInRole("Admin")){
+    <div class="sidebar-box2">
+      <i class="fa-solid fa-store"></i>
+      <a asp-action="Index" asp-area="Admin" asp-controller="Dashboard" class="sidebar-text1" style="text-decoration: none;color:black">Manage Shop</a>
+    </div>
+    }else if(User.IsInRole("Manager")){
+    <div class="sidebar-box2">
+      <i class="fa-solid fa-store"></i>
+      <a asp-action="Index" asp-area="Manager" asp-controller="ManagerDashboard" class="sidebar-text1" style="text-decoration: none;color:black">Manage Shop</a>
+    </div>
+    }
+    <div class="sidebar-box2">
+      <i class="fa-solid fa-receipt"></i>
+      <a asp-action="PurchaseHistory" asp-area="Customer" asp-controller="Home" class="sidebar-text1" style="text-decoration: none;color:black">Purchase History</a>
+    </div>
+    <div class="sidebar-box2" style="position: relative;left: -3px;display:none">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="sidebar-text1" style="margin-left: 7px;">My Items</span>
+    </div>
+    <div class="sidebar-box1">
+      <i class="fa-solid fa-user"></i>
+      <a asp-action="PersonalInfo" asp-area="Customer" asp-controller="Home" class="sidebar-text1" style="text-decoration: none;color:black">Account</a>
+    </div>
+    <div class="sidebar-box1" style="display: none;">
+      <i class="fa-solid fa-circle-question"></i>
+      <span class="sidebar-text1">Help</span>
+    </div>
+    <div class="sidebar-box2" style="display: none;">
+      <i class="fa-solid fa-heart"></i>
+      <span class="sidebar-text1">Lists</span>
+    </div>
+    <div class="sidebar-box1" style="display: none;">
+      <i class="fa-solid fa-gift"></i>
+      <span class="sidebar-text1">Registries</span>
+    </div>
+    <div class="sidebar-box2">
+      <i class="fa-solid fa-bars" style="margin-left: 2px;"></i>
+      <a asp-action="AllCategories" asp-controller="Home" class="sidebar-text1" style="color: black;text-decoration:none">Departments</a>
+    </div>
+    <div class="sidebar-box2" style="display: none;">
+      <i class="fa-solid fa-grip-vertical" style="position: relative;left: 4px;"></i>
+      <span class="sidebar-text1" style="margin-left: 17px;">Services</span>
+      <i class="fa-solid fa-chevron-right font-awesome1" style="left: 178px;"></i>
+    </div>
+    <partial name= "_LoginPartial2"/>
+  </div>
+  <div class="header1">
+    <div class="flex-container1">
+      <a asp-controller="Home" asp-action="Index" style="width: 170px; height: 52px; margin-left: 15px"><img src="~/images/Main Page/walmartLogo.svg" alt="walmart logo" class="img3" /></a>
+      <button class="fa-solid fa-bars icon" id="two">
+        <span class="icontext">Departments</span>
+      </button>
+      <button class="fa-solid fa-grip-vertical icon" style="width: 110px;display:none" onclick="openNav()" id="service">
+        <span class="icontext">Services</span>
+      </button>
+      <form method="post" onsubmit="return checkinput('inside1')" asp-action="SearchProductsbyName" class="placeholder1">
+        <input type="text" placeholder="Search everything at Walmart online and in store" class="inside1" name="productname"/>
+        <button class="fa-solid fa-magnifying-glass button1 insidebtn1" type="submit"></button>
+      </form>
+      <form method="post" onsubmit="return checkinput('inside2')" asp-action="SearchProductsbyName" class="placeholder2">
+        <input type="text" placeholder="Search Walmart" class="inside2" />
+        <button class="fa-solid fa-magnifying-glass button1 insidebtn1" type="submit"></button>
+      </form>
+      <button class="fa-solid fa-magnifying-glass button1" type="submit" style="visibility: hidden;"></button>
+      <button class="fa-regular fa-heart icon2" id="icon2" style="display: none;">
+        <span class="icontext2">Reorder <br /><span style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My
+            Items</span></span>
+      </button>
+      <partial name= "_LoginPartial"/>
+      <partial name= "_LoginPartial3">
+        @if(@User.Identity!.IsAuthenticated){
+        <a asp-action="CartDetails" asp-area="Customer">
+          <button class="fa-solid fa-cart-shopping icon3" style="right: 15px; padding-left: 14px">
+          @await Component.InvokeAsync("TotalPrice") @await Component.InvokeAsync("ShoppingCart")
+          </button>
+        </a>
+        }else{
+        <a asp-action="Enter_Email" asp-area="Customer">
+          <button class="fa-solid fa-cart-shopping icon3" style="right: 15px; padding-left: 14px">
+          <span class="icontext3">$0.00</span><span class="icontext4">0</span>
+          </button>
+        </a>
+        }
+    </div>
+    <div class="flex-container2">
+      <button class="fa-solid fa-bars icon7" onclick="openNav()" id="sc1"></button>
+      <a asp-action="Index" asp-area="Customer" style="height: 50px; width: 50px; margin-right: 15px" id="img4"><img src="~/images/Main Page/4809.webp" alt="" class="img4" /></a>
+      <form method="post" onsubmit="return checkinput('inside3')" class="placeholder3" asp-action="SearchProductsbyName">
+        <input type="text" placeholder="Search Walmart" class="inside3" />
+        <button class="fa-solid fa-magnifying-glass button1 insidebtn2" type="submit"></button>
+      </form>
+      <button class="fa-solid fa-magnifying-glass button1" style="visibility: hidden;" type="submit"></button>
+      <button class="fa-solid fa-cart-shopping icon3" style="right: 15px; padding-left: 14px">
+        <span class="icontext3" style="left: 12px">$0.00</span><span class="icontext4">0</span>
+      </button>
+    </div>
+    <div class="header2">
+      <button style="flex-shrink: 0; width: 620px; margin-left: 10px;display:flex" id="btn1">
+        <img src="~/images/Main Page/Holding Phone Icon.webp" alt="" class="img1" />
+        <span class="icontext5" id="txt1">Shop Address</span>
+        <span class="icontext6" style="bottom: 1px; margin-right: 8px">|</span>
+        <p class="fa-solid fa-location-dot" style="color: white;margin: auto 0" id="i1"></p>
+        <span class="icontext6">6TH East Ave</span>
+        <p class="fa-solid fa-house icon4" style="bottom: 0.5px;margin:auto 0 auto 8px" id="i2"></p>
+        <span class="icontext6">Austin Supercenter</span>
+      </button>
+      <div style="width: 100%"></div>
+      <div style="position: relative; margin: 9px 30px 0 0; flex-shrink: 0">
+        @foreach (var category in (List<MainPageCategoriesDto>)ViewData["MainPageData"]!)
+        {
+        if(count == 7){
+          break;
+        }else {
+          count++;
+          <a id="l@(count)" style="color: white;cursor:pointer" class="link" href="@Url.Action("SearchProducts", "Home", new { categoryid = @category.CategoryId})">@category.Category_Name</a>
+        }
+        }
+      </div>
+    </div>
+  </div>
+  <div class="button3" id="one">
+    <div class="dropdown1" id="dd1">
+      <a asp-action="AllCategories">All Departments</a>
+      @foreach (var category in (List<MainPageCategoriesDto>)ViewData["MainPageData"]!)
+      {
+        <button class="five">
+        <div class="hover1" id="three"></div>
+        <span>@category.Category_Name</span>
+        </button>
+      }    
+    </div>
+    @foreach (var category in (List<MainPageCategoriesDto>)ViewData["MainPageData"]!)
+    {
+    int categoriespercolumn = (int)Math.Ceiling(category.SubCategories!.Count() /2.0);
+    <div class="dropdown2" style="max-height: 586px;">
+      <div class="column" id="cate2">
+      <a style="font-weight: 700;cursor:pointer;color:black;text-decoration:none" href="@Url.Action("SearchProducts", "Home", new { categoryid = @category.CategoryId})">@category.Category_Name</a>
+      @foreach (var subcategory in category.SubCategories!.Take(categoriespercolumn))
+      {
+        <a style="color:black;text-decoration:none" href="@Url.Action("SearchProducts", "Home", new { subcategoryid = @subcategory.SubCategoryId})">@subcategory.SubCategory_Name</a>
+      }
+      </div>
+      <div class="column" id="cate4">
+      <a style="font-weight: 700;visibility:hidden">@category.Category_Name</a>
+      @foreach (var subcategory in category.SubCategories!.Skip(categoriespercolumn))
+      {
+        <a style="color:black;text-decoration:none" href="@Url.Action("SearchProducts", "Home", new { subcategoryid = @subcategory.SubCategoryId})">@subcategory.SubCategory_Name</a>
+      }
+      </div>
+      <div class="column3">
+      <img src="~/@category.Category_Image" alt="" width="100%">
+      <a style="font-weight: 700;color:black;text-decoration:none" href="@Url.Action("SearchProducts", "Home", new { categoryid = @category.CategoryId})">@category.Category_Name</a>
+      <button class="button5" style="width: 140px; margin:0">
+          Shop Now
+        </button>
+      </div>
+    </div>
+    }
+    <div class="dropdown2" style="max-height: 586px;width: fit-content;">
+      <div style="margin: 0 20px 0 0; float: left; font-weight: 700">
+        Electronics
+        <p>Apple</p>
+        <p>Gateway</p>
+        <p>HP</p>
+        <p>onn.</p>
+        <p>Samsung</p>
+        Toys & Video Games
+        <p>Shop all toy brands</p>
+        <p>Barbie</p>
+        <p>Disney</p>
+        <p>LEGO</p>
+        <p>LOL</p>
+        <p>Nintendo</p>
+        <p>PS5</p>
+        <p>Squishmallow</p>
+        <p>XBOX</p>
+        Sports & Outdoors
+        <p>Abu Garcia</p>
+        <p>Athletic Works</p>
+        <p>Coleman</p>
+        <p>Ozark Trail</p>
+        <p>Rawlings</p>
+        Baby
+        <p>Evenflo</p>
+        <p>Gerber</p>
+        <p>Pampers</p>
+        <p>Parent's Choice</p>
+        <p>Similac</p>
+      </div>
+      <div style="float: left; margin: 0 20px 0 20px; font-weight: 700">
+        Clothing, Shoes & <br />
+        Accessories
+        <p>Bonobos Fielder</p>
+        <p>Celebrity Pink</p>
+        <p>Champion</p>
+        <p>Eloquii Elements</p>
+        <p>Free Assembly</p>
+        <p>Levis</p>
+        <p>Love & Sports</p>
+        <p>Justice</p>
+        <p>Madden NYC</p>
+        <p>Reebok</p>
+        <p>Sam & Libby</p>
+        <p>Scoop</p>
+        <p>Sofia Vergara Jeans</p>
+        Househole Essentials
+        <p>Bounty</p>
+        <p>Great Value</p>
+        <p>Safety</p>
+        <p>Tide</p>
+        Home Improvement
+        <p>Delta</p>
+        <p>HART</p>collection
+        <p>Hyper Tough</p>
+        <p>Lasko</p>
+      </div>
+      <div class="dropdown3" style="bottom: 30px;">
+        <img src="~/images/Main Page/dropdown2.jpg" alt="" style="width: 100%; border-radius: 0; padding: 15px 15px 0 15px" />
+        <p style="font-weight: 700; font-size: 18px; margin-left: 15px" id="special">
+          Discover KitchenAid
+        </p>
+        <p style="font-weight: 300; font-size: 14px; margin-left: 15px" id="special">
+          Unleash your creativity with premium appliances and kitchenware.
+        </p>
+        <button class="button5" style="width: 140px; margin: 25px 0 0 15px">
+          Shop Now
+        </button>
+      </div>
+    </div>
+  </div>
+  @RenderBody()
+  <footer id="footer1" style="margin-top: auto;width:100%">
+    <a href="">All Departments</a>
+    <a href="">Store Directory</a>
+    <a href="">Careers</a>
+    <a href="">Our Company</a>
+    <a href="">Sell on Walmart.com</a>
+    <a href="">Help</a>
+    <a href="">COVID-19 Vaccine Scheduler</a>
+    <a href="">Product Recalls</a>
+    <a href="">Accessibility</a>
+    <a href="">Tax Exempt Program</a>
+    <br />
+    <a href="">Get the Walmart App</a>
+    <a href="">Sign-up for Email</a>
+    <a href="">Safety Data Sheet</a>
+    <a href="">Terms of Use</a>
+    <a href="">Privacy & Security</a>
+    <a href="">CA Private Rights</a>
+    <a href="">California Supply Chain Act</a>
+    <a href="">Do Not Sell My Personal Information</a>
+    <br />
+    <a href="">Request My Personal Information</a>
+    <a href="">#IYWYK</a>
+    <br /><br /><br />
+    <span style="color: white; font-size: 11px">
+      <span class="fa-regular fa-copyright"></span>&nbsp;&nbsp;2022 Walmart.
+      All Rights Reserved
+    </span>
+  </footer>
+  <footer id="footer2" style="margin-top: auto;width:100%">
+    <br />
+    <a href="">All Departments</a>
+    <br /><br />
+    <a href="">Store Directory</a>
+    <br /><br />
+    <a href="">Careers</a>
+    <br /><br />
+    <a href="">Our Company</a>
+    <br /><br />
+    <a href="">Sell on Walmart.com</a>
+    <br /><br />
+    <a href="">Help</a>
+    <br /><br />
+    <a href="">COVID-19 Vaccine Scheduler</a>
+    <br /><br />
+    <a href="">Product Recalls</a>
+    <br /><br />
+    <a href="">Accessibility</a>
+    <br /><br />
+    <a href="">Tax Exempt Program</a>
+    <br /><br />
+    <a href="">Get the Walmart App</a>
+    <br /><br />
+    <a href="">Sign-up for Email</a>
+    <br /><br />
+    <a href="">Safety Data Sheet</a>
+    <br /><br />
+    <a href="">Terms of Use</a>
+    <br /><br />
+    <a href="">Privacy & Security</a>
+    <br /><br />
+    <a href="">CA Private Rights</a>
+    <br /><br />
+    <a href="">California Supply Chain Act</a>
+    <br /><br />
+    <a href="">Do Not Sell My Personal Information</a>
+    <br /><br />
+    <a href="">Request My Personal Information</a>
+    <br /><br />
+    <a href="">#IYWYK</a>
+    <br /><br /><br />
+    <span style="color: white; font-size: 14px; margin: 0 0 0 10px">
+      <span class="fa-regular fa-copyright"></span>&nbsp;&nbsp;2022 Walmart.
+      All Rights Reserved
+    </span>
+    <br /><br /><br />
+  </footer>
+  <script src="~/js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="~/js/script2.js"></script>
+  <script src="~/js/script3.js"></script>
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

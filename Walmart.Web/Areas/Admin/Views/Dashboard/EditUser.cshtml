@@ -1,0 +1,56 @@
+@model Walmart.ApplicationCore.Models.ApplicationUser
+@{
+    string[] fullname = Model.FullName!.Split(' ');
+    string firstname = fullname[0];
+    string lastname = fullname[1];
+}
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard Analytics</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Edit User</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12" style="top: -90px;left:10px;max-width:98.5%">
+        <div class="card table-card">
+            <div class="card-body p-4">
+                <form method="post" onsubmit="return checkform6()" asp-action="UpdateUser">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="font-weight: 900;">First Name</label>
+                        <input class="form-control" id="firstname" name="firstname" placeholder="Enter first name" value="@firstname">
+                        <div class="mt-1 text-danger" id="fn1" style="display: none;">First name can't be empty !</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="font-weight: 900;">Last Name</label>
+                        <input class="form-control" id="lastname" name="lastname" placeholder="Enter last name" value="@lastname">
+                        <div class="mt-1 text-danger" id="ln1" style="display: none;">Last name can't be empty !</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="font-weight: 900;">Phonenumber</label>
+                        <input class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter phone number" value="@Model.PhoneNumber">
+                        <div class="mt-1 text-danger" id="pn1" style="display: none;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="font-weight: 900;">Address</label>
+                        <input class="form-control" id="address" name="address" placeholder="Enter address" value="@Model.Address">
+                        <div class="mt-1 text-danger" id="add1" style="display: none;"></div>
+                    </div>
+                    <input type="text" name="id" value="@Model.Id" style="display: none;">
+                    <a asp-action="ManageUsers" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>    
+    </div>
+</div>

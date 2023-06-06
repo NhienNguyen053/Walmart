@@ -1,0 +1,108 @@
+@using Microsoft.AspNetCore.Identity
+@using Walmart.ApplicationCore.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Walmart</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="~/images/Main Page/4809.webp" />
+    <!-- vendor css -->
+    <link rel="stylesheet" href="~/css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    
+
+</head>
+<body class="">
+	<nav class="pcoded-navbar menu-light ">
+		<div class="navbar-wrapper  ">
+			<div class="navbar-content scroll-div " >
+				
+				<ul class="nav pcoded-inner-navbar ">
+					<li class="nav-item pcoded-menu-caption">
+					    <label>Navigation</label>
+					</li>
+					<li class="nav-item">
+					    <a asp-controller="Dashboard" asp-action="Index" asp-area="Admin" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-house"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+					</li>
+					<li class="nav-item pcoded-hasmenu">
+					    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-store"></i></span><span class="pcoded-mtext">Shop</span></a>
+					    <ul class="pcoded-submenu">
+							@if (User.IsInRole("Admin"))
+							{
+								<li><a asp-controller="Dashboard" asp-action="ManageUsers" asp-area="Admin">Users</a></li>
+					        	<li><a asp-controller="Dashboard" asp-action="ManageCategories" asp-area="Admin">Categories</a></li>
+                            	<li><a asp-controller="Dashboard" asp-action="ManageProducts" asp-area="Admin">Products</a></li>
+								<li><a asp-controller="Dashboard" asp-action="ManageOrders" asp-area="Admin">Orders</a></li>	
+							}else{
+								<li><a asp-controller="ManagerDashboard" asp-action="ManageUsers" asp-area="Manager">Users</a></li>
+					        	<li><a asp-controller="ManagerDashboard" asp-action="ManageCategories" asp-area="Manager">Categories</a></li>
+                            	<li><a asp-controller="ManagerDashboard" asp-action="ManageProducts" asp-area="Manager">Products</a></li>
+								<li><a asp-controller="ManagerDashboard" asp-action="ManageOrders" asp-area="Manager">Orders</a></li>
+							}
+					    </ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- [ navigation menu ] end -->
+	<!-- [ Header ] start -->
+	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+				<div class="m-header">
+					<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+					<a href="#!" class="b-brand">
+						<!-- ========   change your logo hear   ============ -->
+						<img src="~/images/Admin Page/logo.png" style="margin-left: 10px;width: 75%" alt="" class="logo" id="logo">
+						<img src="~/images/Admin Page/logo-icon.png" alt="" class="logo-thumb">
+					</a>
+					<a href="#" class="mob-toggler">
+						<i class="feather icon-more-vertical"></i>
+					</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav ml-auto">
+						<li>
+							<div class="dropdown drp-user">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="fa-regular fa-user"></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right profile-notification">
+									<div class="pro-head">
+										<span>Hi, @UserManager.GetUserAsync(User)?.Result?.FullName</span>
+									</div>
+									<ul class="pro-body">
+										<li><a class="dropdown-item" asp-action="Index" asp-area="Customer" asp-controller="Home"><i class="fa-solid fa-house"></i>Go to Shop</a></li>
+                                        <li><form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+										<button type="submit" class="dropdown-item"><i class="fa-solid fa-right-from-bracket" style="margin-right:10px;margin-left:2px"></i> Sign Out</button>
+                                        </form></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+	</header>
+	@RenderBody()
+    <script src="~/js/vendor-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="~/js/pcoded.min.js"></script>
+
+<!-- Apex Chart -->
+<script src="~/js/apexcharts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+<!-- custom-chart js -->
+<script src="~/js/dashboard-main.js"></script>
+<script src="~/js/script4.js"></script>
+</body>
+</html>

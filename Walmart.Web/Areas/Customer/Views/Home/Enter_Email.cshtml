@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Enter Email";
+    Layout = "_LoginLayout";
+}
+  <div class="flex-container5">
+    <img src="~/images/Main Page/4809.webp" alt="" class="form-img1" />
+    <br />
+    <p class="form-text1">
+      Enter your email to sign in <br />
+      or create an account
+    </p>
+    <p class="form-text2">Email Address</p>
+    <form asp-action="CheckEmail" style="display: flex; flex-wrap: wrap; width: 100%" method="post" onsubmit="return regex()">
+      <input type="text" class="input1" id="email" name="email" />
+      <p class="validation1" id="valid">
+        Email address is required.
+        <span class="fa-solid fa-circle-exclamation"></span>
+      </p>
+      <button class="button11" type="submit">Continue</button>
+    </form>

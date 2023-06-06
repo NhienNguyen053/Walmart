@@ -1,0 +1,142 @@
+@using Walmart.ApplicationCore.Models;
+@model Walmart.ApplicationCore.ViewModels.ProductVM;
+@{
+    int i = 0;
+    var total = Model.Total;
+    var Pages = total/10;
+    int j = 0;
+    var categories = ViewData["Categories"] as List<Category>;
+}
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard Analytics</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Manage Products</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12" style="top: -90px;left:10px;max-width:98.5%">
+        <div class="card table-card">
+            <div class="alert alert-dismissible fade show" role="alert" style="margin:12px 12px 0 12px;display:none" id="alert">
+                <strong id="alerttext">Delete product successfully !</strong>
+                <button type="button" class="close" data-bs-dismiss="alert" style="top: -3px">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class="card-header">
+                <h5>Manage Products</h5>
+                <div style="display: flex;">
+                    <h6 style="font-weight: 500;margin-top:10px;margin-right:10px">Category: </h6>
+                    <select id="category" style="width: 240px;height:fit-content;margin: auto 20px auto 0" onchange="changecategory()">
+                        <option id="0">All</option>
+                        @foreach (var category in categories!)
+                        {
+                            <option id="@category.CategoryId">@category.Category_Name</option>
+                        }
+                    </select>
+                    <h6 style="font-weight: 500;margin-top:10px;margin-right:10px">Subcategory: </h6>
+                    <select id="subcate" style="width: 240px;height:fit-content;margin: auto 0" onchange="changesubcategory()">
+                        @if (ViewData["subcategory"] == null)
+                        {
+                            <option style="display: none;" selected>Please select a category</option>   
+                        }else{
+                            <option style="display: none;" selected>Select a subcategory</option>
+                            @foreach (var subcategory in (List<SubCategory>)ViewData["subcategory"]!)
+                            {
+                                <option id="@subcategory.SubCategoryId">@subcategory.SubCategory_Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="card-header-right">
+                    <div class="btn-group card-option">
+                        <a class="btn btn-primary rounded" asp-controller="Dashboard" asp-action="CreateProduct" asp-area="Admin" onclick="checkcategory(event)">Create Product</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Product Id</th>
+                                <th>SubCategory Name</th>
+                                <th>Product Name</th>
+                                <th>Product Price</th>
+                                <th>Product Status</th>
+                                <th>Product Quantity</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in Model.DataList)
+                            {
+                                <tr class="tr1" id="@product.ProductId">
+                                    <td>@product.ProductId</td>
+                                    <td>@product.SubCategory_Name</td>
+                                    <td>@product.Product_Name</td>
+                                    <td>@product.Product_Price</td>
+                                    <td>@product.Product_Status</td>
+                                    <td>@product.Product_Quantity</td>
+                                    <td>
+                                        <a class="fa-solid fa-pen-to-square text-warning" style="margin-right: 12px;" href="@Url.Action("ProductDetails", "Dashboard", new { id = @product.ProductId})"></a>
+                                        <button style="padding: 0;background-color: white;border: none;" type="button" class="btn btn-primary fa-solid fa-trash-can text-danger" data-bs-toggle="modal" data-bs-target="#mymodal" onclick="changemodal(@product.ProductId)"></button>
+                                    </td>
+                                </tr>
+                            }
+                            <div id="mymodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title text-danger" id="exampleModalCenterTitle" style="font-size: 22px;">Warning</h5>
+										<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									</div>
+									<div class="modal-body">
+										<p class="mb-0" style="font-size: 16px;">Are you sure you want to delete this product? &#40;Product Id = <span id="modaltext"></span>&#41;</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn  btn-secondary" data-bs-dismiss="modal">No</button>
+										<button type="button" class="btn  btn-primary" onclick="deleteproduct()" data-bs-dismiss="modal">Yes</button>
+									</div>
+								</div>
+							</div>
+						    </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12" style="top: -90px;left:10px;max-width:98.5%;display:flex;justify-content:center">
+        @for (i = 0; i <= Pages; i++)
+        {
+            {
+                j = i + 1;
+            }
+            <a href="@Url.Action("ManageProducts", "Dashboard", new { id = @j})" style="border:1px solid grey;padding:10px 15px">@j</a>
+        }
+    </div>
+<script>
+    $(document).ready(function() {
+        var selectedValue = '@Html.Raw(ViewData["selectedCategory"] as string)';
+        if (selectedValue) {
+            $('#category').val(selectedValue);
+        }
+        var selectedValue2 = '@Html.Raw(ViewData["selectedSubcategory"] as string)';
+        var selectedValue3 = '@ViewData["selectedSubcategory"]';
+        if (selectedValue3 != null && selectedValue3 !== "") {
+            $('#subcate').val(selectedValue2); 
+        }
+    });
+</script>

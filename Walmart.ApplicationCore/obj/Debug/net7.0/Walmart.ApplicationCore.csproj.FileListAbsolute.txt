@@ -1,0 +1,14 @@
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\bin\Debug\net7.0\Walmart.ApplicationCore.deps.json
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\bin\Debug\net7.0\Walmart.ApplicationCore.runtimeconfig.json
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\bin\Debug\net7.0\Walmart.ApplicationCore.dll
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\bin\Debug\net7.0\Walmart.ApplicationCore.pdb
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.csproj.AssemblyReference.cache
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.AssemblyInfoInputs.cache
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.AssemblyInfo.cs
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.csproj.CoreCompileInputs.cache
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.dll
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\refint\Walmart.ApplicationCore.dll
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.pdb
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.genruntimeconfig.cache
+D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\ref\Walmart.ApplicationCore.dll

@@ -1,0 +1,33 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="flex-container5" style="width: 25%">
+    <img src="~/images/Main Page/4809.webp" alt="" class="form-img1" />
+    <br />
+    <div asp-validation-summary="ModelOnly" role="alert" id="warning-text1"></div>
+    <p class="form-text1" style="font-size: 18px">Welcome back!</p>
+    <p class="form-text2" style="margin-left: 0">Email address:</p>
+    <p id="ten" class="form-text2" style="margin-left: 0"></p>
+    <a href="@Url.Action("Enter_Email", "Home", new { area = "Customer" })" class="a7" style="left: 80%">Change</a>
+    <p class="form-text2" style="margin: 1% 0 1% 0">Enter your password</p>
+    <form method="post" style="display: flex; flex-wrap: wrap; width: 100%" id="login_form" onsubmit="return checknull()">
+      <input type="password" class="input2" id="password" name="password" style="padding-right: 16%" />
+      <input type="button" value="Show" onclick="showpassword()" class="submit1" style="margin-left: 85%" />
+      <p class="validation1" id="valid" style="bottom: 55px; left: -20px">
+        Password is required
+        <span class="fa-solid fa-circle-exclamation"></span>
+      </p>
+      <button type="submit" class="button11" style="width: 100%; top: -10px">
+        Sign In
+      </button>
+      <input type="text" id="email" name="email" value="" style="display: none" />
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

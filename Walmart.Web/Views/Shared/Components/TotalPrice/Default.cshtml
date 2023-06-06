@@ -1,0 +1,15 @@
+@model decimal
+@if (Model >= 10 && Model < 100)
+{
+    <span class="icontext3" style="left: 10px;" id="total-price">$@Model</span>
+}else if(Model >= 100 && Model < 1000){
+    <span class="icontext3" style="left: 7px;" id="total-price">$@Model</span>
+}else if(Model >= 1000){
+    <span class="icontext3" style="left: 4px;" id="total-price">$@Model</span>
+}else{
+    if(Model == 0){
+        <span class="icontext3" id="total-price">$0.00</span>
+    }else{
+    <span class="icontext3" id="total-price">$@Model</span>
+    }
+}

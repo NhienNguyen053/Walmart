@@ -1,0 +1,108 @@
+@using Walmart.ApplicationCore.Models;
+@model List<Walmart.ApplicationCore.DtoModels.CartDetailsDto>
+@{
+    Layout = "_MainLayout3";
+    DateTime currentDate = DateTime.Now;
+    DateTime nextDate = currentDate.AddDays(1);
+    string formattedDate = nextDate.ToString("ddd, MMM d");
+}
+<body id="body1" style="display: flex;min-height:100vh;flex-wrap:wrap;margin:0;background-color:white;">
+  <div style="position:sticky;width:100%;background-color:#0071CE;height:fit-content;padding: 20px 0 20px 0">
+    <a asp-action="CartDetails" class="fa-solid fa-chevron-left" style="color:white;text-decoration:none;font-size:20px;position:absolute;left:20px;margin-top:3px"></a>
+    <p style="text-align:center;color:white;font-weight:900;font-size:20px;margin:0">Checkout</p>
+  </div>
+<div style="width: 82%;display:flex;margin:75px auto 0 auto;position:relative;top:-40px">
+    <form style="width: 65%;margin-right:20px" method="post" onsubmit="return checkform4()" asp-action="CreateOrder">
+      <div style="box-shadow:0 1px 2px 1px #00000026;border-radius:10px;margin-bottom:20px">
+        <div style="width: 100%;background-color:#f2f8fd;padding:20px;border-radius:10px 10px 0 0;display:flex;margin-top:10px">
+          <img src="~/images/Main Page/mci-shipping.svg" alt="" style="margin: auto 0;">
+          <p style="margin:auto 0 auto 15px;font-size:20px;font-weight:900">1. Shipping, arrives by @formattedDate</p>
+          <p class="fa-solid fa-circle-check" style="color:green;font-size:26px;margin:auto 0 auto auto"></p>
+        </div>
+        <div style="padding: 30px;">
+          <p style="font-weight: 900;font-size:18px">Order information</p>
+          <div style="margin-bottom:20px">
+            <label for="">Full Name</label>
+            <input type="text" class="form-control" placeholder="Enter full name" style="padding-left: 0;" value="@((ViewData["User"] as ApplicationUser)?.FullName)" id="fullname" name="fullname">
+            <p style="display: none;color:red;margin-top:5px" id="fn1">Please enter a name !</p>
+          </div>
+          <div style="margin-bottom:20px">
+            <label for="">Phone Number</label>
+            <input type="text" class="form-control" placeholder="Enter phone number" style="padding-left: 0;" value="@((ViewData["User"] as ApplicationUser)?.PhoneNumber)" id="phonenumber" name="phonenumber">
+            <p style="display: none;color:red;margin-top:5px" id="pn1">Please enter a phone number !</p>
+          </div>
+          <div style="margin-bottom:20px">
+            <label for="">Address</label>
+            <input type="text" class="form-control" placeholder="Enter address" style="padding-left: 0;" value="@((ViewData["User"] as ApplicationUser)?.Address)" id="address" name="address">
+            <p style="display: none;color:red;margin-top:5px" id="add1">Please enter an address !</p>
+          </div>
+          <p style="font-weight: 900;font-size:18px">Items details</p>
+          @foreach (var item in Model)
+          {
+            <div style="display: flex;margin:25px 0 0 0;padding:0 25px 15px 0" id="@item.Product_Id">
+            <a href="@Url.Action("ProductDetails", "Home", new { id = @item.Product_Id})"><img src="~/@item.Image_Path" style="max-height:96px;max-width:96px;margin-right:10px;border-radius:0"></a>
+            <div style="width: 100%;">
+                <p>@item.Product_Name</p>
+                <p>Price: $@item.Product_Price</p>
+                <p>Quantity: @item.Product_Quantity</p>
+            </div>
+            <div>
+                <p style="color: green;" id="price_@item.Product_Id">$@item.Total</p>
+            </div>
+            </div>
+            <div style="color:red;margin: 0 0 0 25px;padding: 0 0 15px 0;font-size:14px;display:none" id="valid_@item.Product_Id">Not enough product in stock !</div>
+          }
+        </div>
+      </div>
+      <div style="box-shadow:0 1px 2px 1px #00000026;border-radius:10px">
+        <div style="width: 100%;background-color:#f2f8fd;padding:20px;border-radius:10px 10px 0 0;display:flex;margin-top:10px">
+          <p class="fa-solid fa-wallet" style="font-size: 22px;margin: auto 10px;"></p>
+          <p style="margin:auto 0 auto 15px;font-size:20px;font-weight:900">2. Payment method</p>
+          <p class="fa-solid fa-circle-check" style="color:green;font-size:26px;margin:auto 0 auto auto"></p>
+        </div>
+        <div style="padding: 30px;">
+          <input type="radio" class="form-check-input" name="method" id="method" checked style="margin-left: 10px;" value="COD">
+          <label for="method" class="form-check-label" style="margin-left: 30px;">COD &#40;Cash on delivery&#41;</label>
+        </div>
+        <input type="text" style="display: none;" name="totalprice" id="totalprice" value="@ViewData["Total"]">
+        <button type="submit" class="btn-primary btn" style="border-radius: 25px;width:30%;margin:0 0 30px 30px;font-weight:900">Confirm Order</button>
+      </div>
+    </form>
+    <div style="width: 30%;box-shadow:0 1px 2px 1px #00000026;border-radius:10px;height:fit-content;padding:20px;margin-top:10px">
+      <div class="d-flex justify-content-between txt2">
+          <span style="font-weight: 900;">Subtotal <span style="font-weight: 300;" id="count3">&#40;@ViewData["Count"] Items&#41;</span></span>
+          <span id="total2">$@ViewData["Total"]</span>
+        </div>
+        <div class="d-flex justify-content-between txt2" style="margin-top:25px;padding-top:15px;border-top:1px solid rgb(228, 228, 228)">
+          <span style="font-weight: 900;">Savings</span>
+          <span>None</span>
+        </div>
+        <div class="d-flex justify-content-between txt2" style="margin-top:25px">
+          <span>Shipping</span>
+          <span style="color:green">Free</span>
+        </div>
+        <div class="d-flex justify-content-between txt2" style="margin-top:25px;padding-top:15px;border-top:1px solid rgb(228, 228, 228)">
+          <span style="font-weight: 900;">Taxes</span>
+          <span>Calculated at checkout</span>
+        </div>
+        <div class="d-flex justify-content-between txt2" style="margin-top:25px">
+          <span style="font-weight: 900;">Estimated total</span>
+          <span id="total3" style="font-weight: 900;">$@ViewData["Total"]</span>
+        </div>
+    </div>
+  </div>
+  <div class="flex-container6" id="fc6" style="margin-top:auto;position:static">
+      <div style="width: 30%" id="copyrights1">
+        <span style="font-size: 12px; font-weight: 300">
+          <span class="fa-regular fa-copyright" style="margin: 30px 2px 50px 20%" id="copyrights2"></span>
+          2022 Walmart. All Rights Reserved.
+        </span>
+      </div>
+      <div style="width: 70%" id="copyrights3">
+        <a href="#" class="a8">CA Private Rights</a>
+        <a href="" class="a8">Your Privacy Choices</a>
+        <a href="" class="a8">Request My Personal Information</a>
+        <a href="" class="a8"> California Supple Chains Act</a>
+      </div>
+    </div>
+</body>
