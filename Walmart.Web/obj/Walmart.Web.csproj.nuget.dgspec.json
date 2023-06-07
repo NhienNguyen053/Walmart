@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\Semester 2\\Walmart\\Walmart.Web\\Walmart.Web.csproj": {}
+    "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\Walmart.Web.csproj": {}
   },
   "projects": {
-    "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj": {
+    "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj",
+        "projectUniqueName": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj",
         "projectName": "Walmart.ApplicationCore",
-        "projectPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj",
+        "projectPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj",
         "packagesPath": "C:\\Users\\nhien\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\obj\\",
+        "outputPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nhien\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -87,14 +87,14 @@
         }
       }
     },
-    "D:\\Study\\Semester 2\\Walmart\\Walmart.Infrastructure\\Walmart.Infrastructure.csproj": {
+    "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Infrastructure\\Walmart.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\Semester 2\\Walmart\\Walmart.Infrastructure\\Walmart.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Infrastructure\\Walmart.Infrastructure.csproj",
         "projectName": "Walmart.Infrastructure",
-        "projectPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.Infrastructure\\Walmart.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Infrastructure\\Walmart.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\nhien\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nhien\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -109,8 +109,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj": {
-                "projectPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj"
+              "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj": {
+                "projectPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj"
               }
             }
           }
@@ -174,14 +174,14 @@
         }
       }
     },
-    "D:\\Study\\Semester 2\\Walmart\\Walmart.Web\\Walmart.Web.csproj": {
+    "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\Walmart.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\Semester 2\\Walmart\\Walmart.Web\\Walmart.Web.csproj",
+        "projectUniqueName": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\Walmart.Web.csproj",
         "projectName": "Walmart.Web",
-        "projectPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.Web\\Walmart.Web.csproj",
+        "projectPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\Walmart.Web.csproj",
         "packagesPath": "C:\\Users\\nhien\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.Web\\obj\\",
+        "outputPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nhien\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -196,11 +196,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj": {
-                "projectPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj"
+              "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj": {
+                "projectPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj"
               },
-              "D:\\Study\\Semester 2\\Walmart\\Walmart.Infrastructure\\Walmart.Infrastructure.csproj": {
-                "projectPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.Infrastructure\\Walmart.Infrastructure.csproj"
+              "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Infrastructure\\Walmart.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Infrastructure\\Walmart.Infrastructure.csproj"
               }
             }
           }

@@ -12,3 +12,17 @@ D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\refint\Walm
 D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.pdb
 D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.genruntimeconfig.cache
 D:\Study\Semester 2\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\ref\Walmart.ApplicationCore.dll
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\bin\Debug\net7.0\Walmart.ApplicationCore.deps.json
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\bin\Debug\net7.0\Walmart.ApplicationCore.runtimeconfig.json
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\bin\Debug\net7.0\Walmart.ApplicationCore.dll
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\bin\Debug\net7.0\Walmart.ApplicationCore.pdb
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.AssemblyInfo.cs
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.dll
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\refint\Walmart.ApplicationCore.dll
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.pdb
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\Walmart.ApplicationCore.genruntimeconfig.cache
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.ApplicationCore\obj\Debug\net7.0\ref\Walmart.ApplicationCore.dll

@@ -157,9 +157,6 @@ namespace Walmart.Web.Controllers;
             _uow.Save();
             return RedirectToAction(nameof(ManageCategories));
         }
-        public IActionResult CreateUser(){
-            return View();
-        }
         public IActionResult ManageProducts(int id = 1, int categoryid = 0, int subcategoryid = 0){
             var categories = _uow.Categories.GetAll();
             ViewData["Categories"] = categories;
@@ -384,46 +381,6 @@ namespace Walmart.Web.Controllers;
             if(sub == null){
                 return new JsonResult(false);
             }else{
-                return new JsonResult(true);
-            }
-        }
-        public IActionResult DeleteProduct(int id){
-            var detail = _uow.OrderDetails.GetAll(p => p.Product_Id == id);
-            if(detail.Count() != 0){
-                return new JsonResult(false);
-            }else{
-                var oldproduct = _uow.Products.Get(id);
-                var photo = _uow.ProductPhotos.GetAll(p => p.Product_Id == id).FirstOrDefault();
-                if(photo != null){
-                    string rootpath = _env.WebRootPath;
-                    string folderPath = Path.GetDirectoryName(photo!.Image_Path)!;
-                    string folderPath2 = Path.Combine(rootpath, folderPath);
-                    Directory.Delete(folderPath2, true);
-                }
-                _uow.Products.Remove(oldproduct);
-                _uow.Save();
-                return new JsonResult(true);
-            }
-        }
-        public IActionResult DeleteCategory(int id){
-            var subcategory = _uow.SubCategories.GetAll(p => p.Category_Id == id);
-            if(subcategory.Count() != 0){
-                return new JsonResult(false);
-            }else{
-                var oldcategory = _uow.Categories.Get(id);
-                _uow.Categories.Remove(oldcategory);
-                _uow.Save();
-                return new JsonResult(true);
-            }
-        }
-        public IActionResult DeleteSubcategory(int id){
-            var products = _uow.Products.GetAll(p => p.SubCategory_Id == id);
-            if(products.Count() != 0){
-                return new JsonResult(false);
-            }else{
-                var subcategory = _uow.SubCategories.Get(id);
-                _uow.SubCategories.Remove(subcategory);
-                _uow.Save();
                 return new JsonResult(true);
             }
         }

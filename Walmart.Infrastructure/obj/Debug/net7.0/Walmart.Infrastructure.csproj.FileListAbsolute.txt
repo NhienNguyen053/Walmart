@@ -15,3 +15,20 @@ D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\refint\Walma
 D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.pdb
 D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.genruntimeconfig.cache
 D:\Study\Semester 2\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\ref\Walmart.Infrastructure.dll
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.Infrastructure.deps.json
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.Infrastructure.runtimeconfig.json
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.Infrastructure.dll
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.Infrastructure.pdb
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.ApplicationCore.dll
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\bin\Debug\net7.0\Walmart.ApplicationCore.pdb
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.AssemblyInfo.cs
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.csproj.CopyComplete
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.dll
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\refint\Walmart.Infrastructure.dll
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.pdb
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\Walmart.Infrastructure.genruntimeconfig.cache
+C:\Users\nhien\OneDrive\Documents\GitHub\Walmart\Walmart.Infrastructure\obj\Debug\net7.0\ref\Walmart.Infrastructure.dll

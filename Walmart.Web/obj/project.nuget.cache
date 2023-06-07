@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IwyJAOPQ0I2I1w4+9KeqrSOxdnppL3BqI9MOXsNQCfWkwT6NnaQivf2sOP0IXk6brI1vq4NgJY/zQp9Vugf3qw==",
+  "dgSpecHash": "pb1A2P+rF+aOiU1Q3VImq3cjjsii10xNzQksV+04vqYmenJ/78tP6/EV6/zPui+Y+aF/5MP5N7w2pNb4DIEXtw==",
   "success": true,
-  "projectFilePath": "D:\\Study\\Semester 2\\Walmart\\Walmart.Web\\Walmart.Web.csproj",
+  "projectFilePath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\Walmart.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nhien\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\nhien\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

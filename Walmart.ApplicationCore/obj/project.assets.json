@@ -11026,11 +11026,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj",
+      "projectUniqueName": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj",
       "projectName": "Walmart.ApplicationCore",
-      "projectPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj",
+      "projectPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\Walmart.ApplicationCore.csproj",
       "packagesPath": "C:\\Users\\nhien\\.nuget\\packages\\",
-      "outputPath": "D:\\Study\\Semester 2\\Walmart\\Walmart.ApplicationCore\\obj\\",
+      "outputPath": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.ApplicationCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nhien\\AppData\\Roaming\\NuGet\\NuGet.Config"
