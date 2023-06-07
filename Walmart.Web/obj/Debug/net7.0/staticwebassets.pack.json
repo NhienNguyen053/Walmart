@@ -365,10 +365,6 @@
       "PackagePath": "staticwebassets\\images\\Main Page\\Untitled.png"
     },
     {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\Walmart_Canada_supercenter_exterior_closeup.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\Walmart_Canada_supercenter_exterior_closeup.webp"
-    },
-    {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\ad1.png",
       "PackagePath": "staticwebassets\\images\\Main Page\\ad1.png"
     },
@@ -381,16 +377,8 @@
       "PackagePath": "staticwebassets\\images\\Main Page\\advertise5.png"
     },
     {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\bread1.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\bread1.webp"
-    },
-    {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\build-your-cart.png",
       "PackagePath": "staticwebassets\\images\\Main Page\\build-your-cart.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\cake1.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\cake1.webp"
     },
     {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\credit-card1.png",
@@ -469,10 +457,6 @@
       "PackagePath": "staticwebassets\\images\\Main Page\\gifts-for-kids.webp"
     },
     {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\i1.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\i1.png"
-    },
-    {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\i10.png",
       "PackagePath": "staticwebassets\\images\\Main Page\\i10.png"
     },
@@ -513,32 +497,12 @@
       "PackagePath": "staticwebassets\\images\\Main Page\\i19.png"
     },
     {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\i2.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\i2.png"
-    },
-    {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\i20.png",
       "PackagePath": "staticwebassets\\images\\Main Page\\i20.png"
     },
     {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\i21.png",
       "PackagePath": "staticwebassets\\images\\Main Page\\i21.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\i3.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\i3.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\i4.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\i4.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\i5.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\i5.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\i6.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\i6.png"
     },
     {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\i7.png",
@@ -609,46 +573,6 @@
       "PackagePath": "staticwebassets\\images\\Main Page\\image-removebg-preview (1).png"
     },
     {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\info1.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\info1.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\info10.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\info10.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\info2.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\info2.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\info3.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\info3.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\info4.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\info4.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\info5.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\info5.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\info6.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\info6.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\info7.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\info7.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\info8.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\info8.png"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\info9.png",
-      "PackagePath": "staticwebassets\\images\\Main Page\\info9.png"
-    },
-    {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\jacket-icon1.webp",
       "PackagePath": "staticwebassets\\images\\Main Page\\jacket-icon1.webp"
     },
@@ -665,26 +589,6 @@
       "PackagePath": "staticwebassets\\images\\Main Page\\jacket-icon4.webp"
     },
     {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\jacket1.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\jacket1.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\jacket2.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\jacket2.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\jacket3.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\jacket3.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\jacket4.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\jacket4.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\jacket5.jpeg",
-      "PackagePath": "staticwebassets\\images\\Main Page\\jacket5.jpeg"
-    },
-    {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\laptop1.jpg",
       "PackagePath": "staticwebassets\\images\\Main Page\\laptop1.jpg"
     },
@@ -693,44 +597,8 @@
       "PackagePath": "staticwebassets\\images\\Main Page\\mci-shipping.svg"
     },
     {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\milk1.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\milk1.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\milk2.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\milk2.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\milk3.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\milk3.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\milk4.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\milk4.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\milk5.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\milk5.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\milk6.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\milk6.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\milk7.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\milk7.webp"
-    },
-    {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\nyquil1.webp",
       "PackagePath": "staticwebassets\\images\\Main Page\\nyquil1.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\salad1.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\salad1.webp"
-    },
-    {
-      "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\towel1.webp",
-      "PackagePath": "staticwebassets\\images\\Main Page\\towel1.webp"
     },
     {
       "Id": "C:\\Users\\nhien\\OneDrive\\Documents\\GitHub\\Walmart\\Walmart.Web\\wwwroot\\images\\Main Page\\walmart-logo-png-27972.png",
