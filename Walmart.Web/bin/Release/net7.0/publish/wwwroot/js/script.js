@@ -35,21 +35,6 @@
     get.style.width = '0';
     }
   });
-  function myfunction4(){
-    window.location.href = 'cart.html'
-  }
-  function myfunction5(){
-    $.ajax({
-      type: "POST",
-      url: 'log_out.php',
-      success: function(msg) {
-        if(msg == "Success"){
-          window.location.href = "index.php";
-        }
-        else{}
-      }
-    });
-  }
   window.onclick = function(event)
   {
     if (!document.getElementById('two').contains(event.target)) 
@@ -128,105 +113,5 @@
           clearTimeout(timeoutId);
       }
       timeoutId = setTimeout(showSlides, 5000); // Change image every 5 seconds
-  }
-  function checkform2(){
-    var regex = /^\d+$/;
-    var pname = document.getElementById("pname");
-    var pprice = document.getElementById("pprice");
-    var pstock = document.getElementById("pstock");
-    var count = 0;
-    if(pname.value == ""){
-      document.getElementById("pn1").style.display = "block";
-      document.getElementById("pname").style.cssText = "border-color:red";
-    } else {
-      document.getElementById("pn1").style.display = "none";
-      document.getElementById("pname").style.cssText = "border-color:var(--bs-border-color)";
-      count++;
-    }
-    if(pprice.value == ""){
-      document.getElementById("pp1").style.display = "block";
-      document.getElementById("pprice").style.cssText = "border-color:red";
-    } else{
-      if(pprice.value.match(regex)){
-        document.getElementById("pp1").style.display = "none";
-        document.getElementById("pprice").style.cssText = "border-color:var(--bs-border-color)";
-        count++;
-      }
-      else{
-        document.getElementById("pp1").style.display = "block";
-        document.getElementById("pp1").innerHTML = "Product price can only contains numbers " + "<span class='fa-solid fa-circle-exclamation'></span>";
-        document.getElementById("pprice").style.cssText = "border-color:red";
-      }
-    }
-    if(pstock.value == ""){
-      document.getElementById("ps1").style.display = "block";
-      document.getElementById("pstock").style.cssText = "border-color:red";
-    } else{
-      if(pstock.value.match(regex)){
-        document.getElementById("ps1").style.display = "none";
-        document.getElementById("pstock").style.cssText = "border-color:var(--bs-border-color)";
-        count++;
-      }
-      else{
-        document.getElementById("ps1").style.display = "block";
-        document.getElementById("ps1").innerHTML = "Number in stock can only contains numbers " + "<span class='fa-solid fa-circle-exclamation'></span>";
-        document.getElementById("pstock").style.cssText = "border-color:red";
-      }
-    }
-    if(count == 3){
-      return true;
-    } else{
-      return false;
-    }
-  }
-  function checkform3(){
-    var regex = /^\d+$/;
-    var pname = document.getElementById("pname2");
-    var pprice = document.getElementById("pprice2");
-    var pstock = document.getElementById("pstock2");
-    var count = 0;
-    if(pname.value == ""){
-      document.getElementById("pn2").style.display = "block";
-      document.getElementById("pname2").style.cssText = "border-color:red";
-    } else {
-      document.getElementById("pn2").style.display = "none";
-      document.getElementById("pname2").style.cssText = "border-color:var(--bs-border-color)";
-      count++;
-    }
-    if(pprice.value == ""){
-      document.getElementById("pp2").style.display = "block";
-      document.getElementById("pprice2").style.cssText = "border-color:red";
-    } else{
-      if(pprice.value.match(regex)){
-        document.getElementById("pp2").style.display = "none";
-        document.getElementById("pprice2").style.cssText = "border-color:var(--bs-border-color)";
-        count++;
-      }
-      else{
-        document.getElementById("pp2").style.display = "block";
-        document.getElementById("pp2").innerHTML = "Product price can only contains numbers " + "<span class='fa-solid fa-circle-exclamation'></span>";
-        document.getElementById("pprice2").style.cssText = "border-color:red";
-      }
-    }
-    if(pstock.value == ""){
-      document.getElementById("ps2").style.display = "block";
-      document.getElementById("pstock2").style.cssText = "border-color:red";
-    } else{
-      if(pstock.value.match(regex)){
-        document.getElementById("ps2").style.display = "none";
-        document.getElementById("pstock2").style.cssText = "border-color:var(--bs-border-color)";
-        count++;
-      }
-      else{
-        document.getElementById("ps2").style.display = "block";
-        document.getElementById("ps2").innerHTML = "Number in stock can only contains numbers " + "<span class='fa-solid fa-circle-exclamation'></span>";
-        document.getElementById("pstock2").style.cssText = "border-color:red";
-      }
-    }
-    if(count == 3){
-      return true;
-    } else{
-      return false;
-    }
   }
   

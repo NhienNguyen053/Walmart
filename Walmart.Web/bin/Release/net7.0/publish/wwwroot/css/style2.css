@@ -4976,7 +4976,7 @@ input[type="button"].btn-block {
 .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {
     color: #fff;
 }
-#tr1 td{
+.tr1 td{
     max-width: 300px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -24219,6 +24219,13 @@ div.dtk-focus-alt table.dataTable tbody th.focus {
 
 .aut-bg-img .auth-content {
     padding: 70px 40px;
+}
+@media (max-width: 1130px){
+    .col.column1{
+        width: 98% !important;
+        max-width: 98% !important;
+        flex: 0 0 98% !important;
+    }
 }
 
 /* image varient End */

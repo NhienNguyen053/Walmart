@@ -63,7 +63,18 @@
                                     <td>@order.Phone_Number</td>
                                     <td>@order.Address</td>
                                     <td>@order.CreateDate</td>
-                                    <td>@order.Order_Status</td>
+                                    @if (order.Order_Status == "Pending")
+                                    {
+                                      <td><button class="btn btn-warning" style="padding: 4px 8px;">@order.Order_Status</button></td>
+                                    }else if(order.Order_Status == "Processing"){
+                                      <td><button class="btn btn-primary" style="padding: 4px 8px;">@order.Order_Status</button></td>
+                                    }else if(order.Order_Status == "Shipping"){
+                                      <td><button class="btn btn-info" style="padding: 4px 8px;">@order.Order_Status</button></td>
+                                    }else if(order.Order_Status == "Paid"){
+                                      <td><button class="btn btn-success" style="padding: 4px 8px;">@order.Order_Status</button></td>
+                                    }else{
+                                      <td><button class="btn btn-danger" style="padding: 4px 8px;">@order.Order_Status</button></td>
+                                    }
                                     <td>@order.Payment_Method</td>
                                     <td>@order.Total_Price</td>
                                     <td>

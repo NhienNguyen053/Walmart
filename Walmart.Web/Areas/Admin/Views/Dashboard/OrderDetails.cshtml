@@ -34,7 +34,18 @@
                         <p>Order ID: #@Model.order!.OrderId</p>
                         <p>Create Date: @Model.order!.CreateDate</p>
                         <p>Payment Method: @Model.order!.Payment_Method</p>
-                        <p>Order Status: @Model.order!.Order_Status</p>
+                        @if (Model.order.Order_Status == "Pending")
+                        {
+                          <p>Order Status: <button class="btn btn-warning" style="padding: 4px 8px;">@Model.order.Order_Status</button></p>
+                        }else if(Model.order.Order_Status == "Processing"){
+                          <p>Order Status: <button class="btn btn-primary" style="padding: 4px 8px;">@Model.order.Order_Status</button></p>
+                        }else if(Model.order.Order_Status == "Shipping"){
+                          <p>Order Status: <button class="btn btn-info" style="padding: 4px 8px;">@Model.order.Order_Status</button></p>
+                        }else if(Model.order.Order_Status == "Paid"){
+                          <p>Order Status: <button class="btn btn-success" style="padding: 4px 8px;">@Model.order.Order_Status</button></p>
+                        }else{
+                          <p>Order Status: <button class="btn btn-danger" style="padding: 4px 8px;">@Model.order.Order_Status</button></p>
+                        }
                     </div>
                     <div class="col">
                         <label style="font-weight: 900;font-size:20px">Customer Info</label>

@@ -129,7 +129,7 @@ function checkform() {
       return false;
     }
   }
-  function checkform3(id){
+  function checkform3(){
     var count = 0;
     var regex = /^[0-9]+(\.[0-9]+)?$/;
     var regex2 = /^[0-9]+$/;
@@ -160,7 +160,8 @@ function checkform() {
     }
     if(!productprice.value.match(regex)){
       document.getElementById("pp1").style.display = "block";
-    }else if(productprice.value <= 0){
+      document.getAnimations("pp1").innerHTML = "Product price can only be a number !"
+    }else if(productprice.value < 0){
       document.getElementById("pp1").style.display = "block";
       document.getAnimations("pp1").innerHTML = "Product price can't be lower or equal to 0 !"
     }else {
@@ -169,9 +170,10 @@ function checkform() {
     }
     if(!productquantity.value.match(regex2)){
       document.getElementById("pq1").style.display = "block";
-    }else if(productquantity.value <= 0){
-      document.getElementById("pp1").style.display = "block";
-      document.getAnimations("pp1").innerHTML = "Product quantity can't be lower than 0 !"
+      document.getAnimations("pq1").innerHTML = "Product quantity can only be a number !"
+    }else if(productquantity.value < 0){
+      document.getElementById("pq1").style.display = "block";
+      document.getAnimations("pq1").innerHTML = "Product quantity can't be lower than 0 !"
     }else {
       document.getElementById("pq1").style.display = "none";
       count++;
@@ -188,7 +190,108 @@ function checkform() {
       return false;
     }
   }
-  
+  function checkform4(){
+    var count = 0;
+    var regex1 = /^\d+$/;
+    var fullname = document.getElementById("fullname");
+    var phonenumber = document.getElementById("phonenumber");
+    var address = document.getElementById("address");
+    if(fullname.value.trim() == ""){
+      document.getElementById("fn1").style.display = "block";
+    }else {
+      document.getElementById("fn1").style.display = "none";
+      count++;
+    }
+    if(phonenumber.value.trim() == ""){
+      document.getElementById("pn1").style.display = "block";
+      document.getElementById("pn1").innerHTML = "Phone number can not be empty !";
+    }else if(!phonenumber.value.match(regex1)) {
+      document.getElementById("pn1").style.display = "block";
+      document.getElementById("pn1").innerHTML = "Phone number can only contain number !";
+    }else {
+      document.getElementById("pn1").style.display = "none";
+      count++;
+    }
+    if(address.value.trim() == ""){
+      document.getElementById("add1").style.display = "block";
+    }else {
+      document.getElementById("add1").style.display = "none";
+      count++;
+    }
+    if(count == 3){
+      return true;
+    }else {
+      return false;
+    }
+  }
+  function checkform5(){
+    var count = 0;
+    var regex1 = /^\d+$/;
+    var customername = document.getElementById("customername");
+    var phonenumber = document.getElementById("phonenumber");
+    var address = document.getElementById("address");
+    if(customername.value.trim() == ""){
+      document.getElementById("cn1").style.display = "block";
+    }else{
+      document.getElementById("cn1").style.display = "none";
+      count++;
+    }
+    if(phonenumber.value.trim() == ""){
+      document.getElementById("pn1").style.display = "block";
+      document.getElementById("pn1").innerHTML = "Phone number can not be empty !";
+    }else if(!phonenumber.value.match(regex1)) {
+      document.getElementById("pn1").style.display = "block";
+      document.getElementById("pn1").innerHTML = "Phone number can only contain number !";
+    }else {
+      document.getElementById("pn1").style.display = "none";
+      count++;
+    }
+    if(address.value.trim() == ""){
+      document.getElementById("add1").style.display = "block";
+    }else{
+      document.getElementById("add1").style.display = "none";
+      count++;
+    }
+    if(count == 3){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  function checkform6(){
+    var count = 0;
+    var regex1 = /^\d+$/;
+    var firstname = document.getElementById("firstname").value;
+    var lastname = document.getElementById("lastname").value;
+    var phonenumber = document.getElementById("phonenumber").value;
+    if(firstname.trim() == ""){
+      document.getElementById("fn1").style.display = "block";
+    }else{
+      document.getElementById("fn1").style.display = "none";
+      count++;
+    }
+    if(lastname.trim() == ""){
+      document.getElementById("ln1").style.display = "block";
+    }else{
+      document.getElementById("ln1").style.display = "none";
+      count++;
+    }
+    if(phonenumber.trim() == ""){
+      document.getElementById("pn1").style.display = "none";
+      count++;
+    }else if(!phonenumber.match(regex1)) {
+      document.getElementById("pn1").style.display = "block";
+      document.getElementById("pn1").innerHTML = "Phone number can only contain number !";
+    }else {
+      document.getElementById("pn1").style.display = "none";
+      count++;
+    }
+    if(count == 3){
+      return true;
+    }else{
+      return false;
+    }
+  }
   function regex() {
     var regex = /^[\w.+\-]+@gmail\.com$/;
     var email = document.getElementById("email").value;
@@ -294,5 +397,108 @@ function checkform() {
     }else {
       return true;
     }
+  }
+  function changemodal(id){
+    document.getElementById("modaltext").innerText = id;
+  }
+  function changemodal2(id){
+    document.getElementById("modaltext2").innerText = id;
+  }
+  function deleteproduct(){
+    var id = document.getElementById("modaltext").innerText;
+    $.ajax({
+      url: "/Admin/Dashboard/DeleteProduct?id=" + id,
+      type: "GET",
+      dataType: "json",
+      success: function(data){
+      if(data == true){
+        document.getElementById("alert").style.display = "block";
+        document.getElementById("alert").style.backgroundColor = "lightgreen";
+        document.getElementById("alerttext").innerText = "Delete product successfully";
+        document.getElementById(id).style.display = "none";
+      }else{
+        document.getElementById("alert").style.display = "block";
+        document.getElementById("alert").style.backgroundColor = "rgb(227, 112, 112)";
+        document.getElementById("alerttext").innerText = "Product has been in an order. Can't delete product !";
+      }
+      }
+    })
+  }
+  function checkcategory(event){
+    event.preventDefault();
+    $.ajax({
+      url: "/Admin/Dashboard/CheckCategory",
+      type: "GET",
+      dataType: "json",
+      success: function(data){
+      if(data == true){
+        window.location.href = event.target.href
+      } else{
+        document.getElementById("alert").style.display = "block";
+        document.getElementById("alert").style.backgroundColor = "rgb(227, 112, 112)";
+        document.getElementById("alerttext").innerText = "Please create subcategories before creating a product !";
+      }       
+      }
+    })
+  }
+  function changerole(){
+    var role = document.getElementById('roleSelect').value;
+    window.location.href = '/Admin/Dashboard/ManageUsers?role=' + role;
+  }
+  function changestatus(){
+    var status = document.getElementById('statusSelect').value;
+    window.location.href = '/Admin/Dashboard/ManageOrders?status=' + status;
+  }
+  function changecategory(){
+    const categoryname = document.getElementById('category');
+    const categoryid = categoryname.options[categoryname.selectedIndex].id;
+    window.location.href = '/Admin/Dashboard/ManageProducts?categoryid=' + categoryid;
+  }
+  function changesubcategory(){
+    const categoryname = document.getElementById('category');
+    const subcategoryname = document.getElementById('subcate');
+    const categoryid = categoryname.options[categoryname.selectedIndex].id;
+    const subcategoryid = subcategoryname.options[subcategoryname.selectedIndex].id;
+    window.location.href = '/Admin/Dashboard/ManageProducts?categoryid=' + categoryid + "&subcategoryid=" + subcategoryid;
+  }
+  function deletecategory(){
+    var id = document.getElementById("modaltext").innerText;
+    $.ajax({
+      url: "/Admin/Dashboard/DeleteCategory?id=" + id,
+      type: "GET",
+      dataType: "json",
+      success: function(data){
+      if(data == true){
+        document.getElementById("alert").style.display = "block";
+        document.getElementById("alert").style.backgroundColor = "lightgreen";
+        document.getElementById("alerttext").innerText = "Delete category successfully";
+        document.getElementById("category_" + id).style.display = "none";
+      }else{
+        document.getElementById("alert").style.display = "block";
+        document.getElementById("alert").style.backgroundColor = "rgb(227, 112, 112)";
+        document.getElementById("alerttext").innerText = "Category has subcategories. Can't delete category !";
+      }
+      }
+    })
+  }
+  function deletesubcategory(){
+    var id = document.getElementById("modaltext2").innerText;
+    $.ajax({
+      url: "/Admin/Dashboard/DeleteSubcategory?id=" + id,
+      type: "GET",
+      dataType: "json",
+      success: function(data){
+      if(data == true){
+        document.getElementById("alert").style.display = "block";
+        document.getElementById("alert").style.backgroundColor = "lightgreen";
+        document.getElementById("alerttext").innerText = "Delete subcategory successfully";
+        document.getElementById("subcategory_" + id).style.display = "none";
+      }else{
+        document.getElementById("alert").style.display = "block";
+        document.getElementById("alert").style.backgroundColor = "rgb(227, 112, 112)";
+        document.getElementById("alerttext").innerText = "Subcategory has products. Can't delete subcategory !";
+      }
+      }
+    })
   }
   
