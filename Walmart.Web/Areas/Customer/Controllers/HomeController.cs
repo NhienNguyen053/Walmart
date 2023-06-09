@@ -546,13 +546,10 @@ public class HomeController : BaseController
     }
     public IActionResult EditFullname(string firstname, string lastname){
         var fullname = firstname + " " + lastname;
-        var username = firstname + lastname;
         ClaimsIdentity? identity = HttpContext.User.Identity as ClaimsIdentity;
         string userid = identity!.FindFirst(ClaimTypes.NameIdentifier)!.Value;
         var user = _uow.ApplicationUsers.GetAll(p => p.Id == userid).FirstOrDefault();
         user!.FullName = fullname;
-        user!.UserName = username;
-        user!.NormalizedUserName = username.ToUpper();
         _uow.ApplicationUsers.Update(user);
         _uow.Save();
         return RedirectToAction(nameof(PersonalInfo));

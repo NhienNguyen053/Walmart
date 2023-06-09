@@ -8,4 +8,7 @@ public class ApplicationUser : IdentityUser
     public string? Address {get; set; }
     public List<ShoppingCart>? ShoppingCarts { get; set; }
     public List<Order>? Orders { get; set; }
+    public override string? UserName { get; set; }
+    public override string? NormalizedUserName { get; set; }
+
 }

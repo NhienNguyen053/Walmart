@@ -5,10 +5,6 @@
     Layout = "_RegisterLayout";
     ViewData["Title"] = "Register";
 }
-@if (User.IsInRole(WebsiteRole.Customer))
-{
-  
-}
 <form class="flex-container5" onsubmit="return checkform()" method="post">
     <img src="~/images/Main Page/4809.webp" alt="" class="form-img1" />
     <br />
@@ -52,7 +48,6 @@
     </p>
     <input type="text" id="email" name="email" value="" style="display: none" />
     <input type="text" id="fullname" name="fullname" value="" style="display: none;">
-    <input type="text" id="username" name="username" value="" style="display: none;">
 </form>
 
 @section Scripts {

@@ -432,10 +432,7 @@ namespace Walmart.Web.Controllers;
         }
         public IActionResult UpdateUser(string id, string firstname, string lastname, string phonenumber, string address){
             var user = _uow.ApplicationUsers.GetAll(p => p.Id == id).FirstOrDefault();
-            var username = firstname + lastname;
             var fullname = firstname + " " + lastname;
-            user!.UserName = username;
-            user!.NormalizedUserName = username.ToUpper();
             user!.FullName = fullname;
             user!.PhoneNumber = phonenumber;
             user!.Address = address;

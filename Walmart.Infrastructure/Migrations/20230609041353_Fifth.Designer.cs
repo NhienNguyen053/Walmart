@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Walmart.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using Walmart.Infrastructure.Data;
 namespace Walmart.Infrastructure.Migrations
 {
     [DbContext(typeof(WalmartContext))]
-    partial class WalmartContextModelSnapshot : ModelSnapshot
+    [Migration("20230609041353_Fifth")]
+    partial class Fifth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

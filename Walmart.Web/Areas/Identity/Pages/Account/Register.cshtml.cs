@@ -85,10 +85,6 @@ namespace Walmart.Web.Areas.Identity.Pages.Account
             [DataType(DataType.Text)]
             [Display(Name = "Fullname")]
             public string FullName { get; set; }
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Username")]
-            public string UserName { get; set; }
             [DataType(DataType.Text)]
             [Display(Name = "PhoneNumber")]
             public string PhoneNumber { get; set; }
@@ -149,14 +145,14 @@ namespace Walmart.Web.Areas.Identity.Pages.Account
                 }
                 var user = CreateUser();
                 user.FullName = Input.FullName;
-                user.UserName = Input.UserName;
                 user.PhoneNumber = Input.PhoneNumber;
                 user.Address = Input.Address;
                 user.Email = Input.Email;
+                user.UserName = Input.Email;
                 var result = await _userManager.CreateAsync(user, Input.Password);
-
                 if (result.Succeeded)
                 {
+                    Console.WriteLine("success");
                     _logger.LogInformation("User created a new account with password.");
                     if (Input.Role == null) {
                         await _userManager.AddToRoleAsync(user, WebsiteRole.Customer);
@@ -175,21 +171,18 @@ namespace Walmart.Web.Areas.Identity.Pages.Account
                         }
                         Console.WriteLine("Idk");
                         return LocalRedirect(returnUrl);
+                }else {
+                    foreach (var error in result.Errors)
+                    {
+                        Console.WriteLine(error.Description);
+                    }
+                }
+            }else {
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine(error.ErrorMessage);
                 }
             }
-        var errorMessages = new List<string>();
-        foreach (var value in ModelState.Values)
-        {
-            foreach (var error in value.Errors)
-            {
-                errorMessages.Add(error.ErrorMessage);
-            }
-        }
-        foreach (var errorMessage in errorMessages)
-        {
-            Console.WriteLine(errorMessage);
-        }
-            // If we got this far, something failed, redisplay form
             return Page();
         }
 

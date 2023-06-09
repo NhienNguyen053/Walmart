@@ -56,10 +56,11 @@ function checkform() {
     }
     if(count == 5){
       document.getElementById("fullname").value = fn.value + " " + ln.value;
-      document.getElementById("username").value = fn.value + ln.value;
+      alert("success");
       return true;
     }
     else{
+      alert("failed");
       return false;
     }
   }
@@ -122,7 +123,6 @@ function checkform() {
     }
     if(count == 5){
       document.getElementById("fullname").value = fn.value + " " + ln.value;
-      document.getElementById("username").value = fn.value + ln.value;
       return true;
     }
     else{
