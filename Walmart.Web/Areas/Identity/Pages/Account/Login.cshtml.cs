@@ -123,7 +123,7 @@ namespace Walmart.Web.Areas.Identity.Pages.Account
                     // Get user's role
                     var roles = await _userManager.GetRolesAsync(user);
                     _logger.LogInformation("Role: " + roles[0].ToString());
-                    if (roles.Contains("Admin"))
+                    if (roles.Contains("Admin") || roles.Contains("Manager"))
                     {
                         return Redirect("~/Admin/Dashboard");
                     }

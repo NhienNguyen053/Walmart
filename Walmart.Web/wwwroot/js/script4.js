@@ -56,11 +56,9 @@ function checkform() {
     }
     if(count == 5){
       document.getElementById("fullname").value = fn.value + " " + ln.value;
-      alert("success");
       return true;
     }
     else{
-      alert("failed");
       return false;
     }
   }
