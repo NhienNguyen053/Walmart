@@ -28,10 +28,10 @@
 </style>
 <div class="flex-container7" id="details1">
   <div class="flex-item1">
-    <a href="#">Home</a>&nbsp; <span style="color: gray">/</span>&nbsp;
-    <a href="#">@Model.category!.Category_Name</a>&nbsp;
+    <a asp-action="AllCategories">Home</a>&nbsp; <span style="color: gray">/</span>&nbsp;
+    <a href="@Url.Action("SearchProducts", "Home", new { categoryid = @Model.category!.CategoryId})">@Model.category!.Category_Name</a>&nbsp;
     <span style="color: gray">/</span>&nbsp;
-    <a href="#" style="color: black; text-decoration: none" id="link1">@Model.product!.SubCategory_Name</a>&nbsp;
+    <a href="@Url.Action("SearchProducts", "Home", new { subcategoryid = @Model.product.SubCategory_Id})" style="color: black; text-decoration: none" id="link1">@Model.product!.SubCategory_Name</a>&nbsp;
   </div>
 </div>
 <div style="display:flex;flex-wrap:wrap;width:82%;margin:auto" id="details2">
