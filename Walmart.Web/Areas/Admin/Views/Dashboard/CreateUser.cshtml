@@ -29,7 +29,6 @@
                         <span class="mt-1 text-danger" style="display: none;" id="em1">
                             Please provide a valid email address !
                         </span>
-                        <span class="mt-1 text-danger">@TempData["Error"]</span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">First Name</label>
@@ -71,3 +70,22 @@
         </div>    
     </div>
 </div>
+<script>
+    const inputField = document.getElementById('email');
+    inputField.addEventListener('input', function(event) {
+    const typedValue = event.target.value;
+    $.ajax({
+      url: "/Admin/Dashboard/CheckEmailExist?email=" + typedValue,
+      type: "GET",
+      dataType: "json",
+      success: function(data){
+      if(data == true){
+        document.getElementById("em1").style.display = "none";
+      }else{
+        document.getElementById("em1").style.display = "block";
+        document.getElementById("em1").innerText = "Email already exist !";
+      }
+      }
+    })
+    });
+</script>

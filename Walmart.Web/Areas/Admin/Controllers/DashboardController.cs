@@ -440,4 +440,12 @@ namespace Walmart.Web.Controllers;
             _uow.Save();
             return RedirectToAction(nameof(ManageUsers));
         }
+        public IActionResult CheckEmailExist(string email){
+        var user = _uow.ApplicationUsers.GetAll(p => p.Email == email).FirstOrDefault();
+        if(user == null){
+            return new JsonResult(true);
+        }else{
+            return new JsonResult(false);
+        }
+        }
     }

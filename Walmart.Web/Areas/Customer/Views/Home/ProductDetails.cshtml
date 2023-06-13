@@ -25,6 +25,25 @@
   .img1{
     top: -2px;
   }
+  .owl-stage{
+    display: flex;
+    flex-wrap: wrap;
+    width: 950px !important;
+  }
+  .custom-heading{
+    font-weight: 700; 
+    width: 100%;
+    font-size:18px;
+    white-space: nowrap;
+  }
+  .owl-stage .owl-item:first-child{
+    width: 100% !important; 
+    padding: 0 0 20px 0;
+    margin-top: 25px;
+  }
+  .owl-stage .owl-item{
+    width: 227px !important;
+  }
 </style>
 <div class="flex-container7" id="details1">
   <div class="flex-item1">
@@ -104,13 +123,13 @@
       <img src="~/images/Main Page/details.png" alt="" width="100%" style="margin-bottom: 15px;"/>
       </div>
 </div>
-<div style="display:flex;flex-wrap:wrap;width:65%;margin:auto" class="owl-carousel owl-five" id="details4">
-  <h4 style="font-weight: 700; width: 100%; padding: 0 0 20px 0;font-size:18px;margin-top:25px">Similar items you might like</h4>
+<div style="display:flex;flex-wrap:wrap;width:82%;margin:auto" class="owl-carousel owl-five" id="details4">
+  <h4 class="custom-heading">Similar items you might like</h4>
 @foreach (var product in Model.RelatedProducts!)
 {
-  if(count3 < 4){
+  if(count3 < 5){
   <a href="@Url.Action("ProductDetails", "Home", new { id = @product.ProductId})" class="item" style="border-radius: 10px;width:20%">
-    <img src="~/@product.Image_Path" alt="" style="width: 100%;"/>
+    <div style="height: 189.26px;"><img src="~/@product.Image_Path" alt="" style="width: 100%;height:100%;object-fit: contain"/></div>
     <p style="font-weight: 700;font-size:16px">$@product.Product_Price</p>
     <p style="margin-top: 5px;">@product.Product_Name</p>
     <button style="border: 1px solid black;border-radius:25px;padding:7px 17px 7px 17px;margin:5px 0 15px 0">Options</button>

@@ -117,6 +117,7 @@ function checkform() {
       document.getElementById("em1").style.display = "none";
       count++;
     } else{
+      document.getElementById("em1").innerHTML = "Please provide a valid email address !";
       document.getElementById("em1").style.display = "block";
     }
     if(count == 5){

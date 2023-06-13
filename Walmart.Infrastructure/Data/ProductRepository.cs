@@ -47,6 +47,7 @@ namespace Walmart.Infrastructure.Data
                 Product_Status = product.Product_Status,
                 Product_Quantity = product.Product_Quantity
             });
+            products = products.OrderByDescending(p => p.ProductId);
             var total = await products.CountAsync();
             var data = await products.Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize).ToListAsync();
             return new ProductVM
@@ -69,6 +70,7 @@ namespace Walmart.Infrastructure.Data
                 Product_Status = product.Product_Status,
                 Product_Quantity = product.Product_Quantity
             });
+            products = products.OrderByDescending(p => p.ProductId);
             var total = await products.CountAsync();
             var data = await products.Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize).ToListAsync();
             return new ProductVM
@@ -89,6 +91,7 @@ namespace Walmart.Infrastructure.Data
                 Product_Status = product.Product_Status,
                 Product_Quantity = product.Product_Quantity
             });
+            products = products.OrderByDescending(p => p.ProductId);
             var total = await products.CountAsync();
             var data = await products.Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize).ToListAsync();
             return new ProductVM
