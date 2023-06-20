@@ -96,7 +96,7 @@
           </div>
           <form id="form_pn" style="display: none;" onsubmit="return checkpn()" asp-action="EditPhonenumber">
             <p style="font-weight: 900;font-size: 18px;">Edit phone number</p>
-            <input type="text" value="@Model.PhoneNumber" placeholder="Phone number" style="padding: 15px;width: 100%;border-radius: 5px;border: 0.5px solid;margin-bottom:10px" id="pn1">
+            <input type="text" value="@Model.PhoneNumber" placeholder="Phone number" style="padding: 15px;width: 100%;border-radius: 5px;border: 0.5px solid;margin-bottom:10px" id="pn1" name="phonenumber">
             <p style="color: red;display:none;margin-bottom:0px" id="pn2">Phone number can only contain numbers !</p>
             <br>
             <span style="text-decoration:underline;margin-right:10px;font-size:15px;cursor:pointer" class="cancel" id="cancel_pn">Cancel</span>
